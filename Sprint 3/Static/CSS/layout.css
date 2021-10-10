@@ -1,0 +1,27 @@
+body {
+    background-color: #F9B006;
+}
+
+header{
+    background-color: black;
+    color: white;
+    text-indent: 1.5%;
+    height: 80px;
+}
+
+header p {
+    font: engraverse-bold;
+    font-size: 50px;
+    text-align: left;
+    margin: auto;
+    padding-top: 10px;
+}
+
+footer {
+    background-color: black;
+    height: 80px;
+}
+
+div{
+    margin: 0;
+}
