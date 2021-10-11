@@ -5,16 +5,22 @@ body {
 header{
     background-color: black;
     color: white;
-    text-indent: 1.5%;
+    display: flex;
     height: 80px;
 }
 
-header p {
+#empresa{
+    margin-left: 0px;
+    width: 300px;
+}
+
+#empresa p {
     font: engraverse-bold;
     font-size: 50px;
     text-align: left;
     margin: auto;
-    padding-top: 10px;
+    padding-top: 3px;
+    text-indent: 1.5%;
 }
 
 footer {
