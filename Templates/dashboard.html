@@ -4,5 +4,12 @@
     <p>{{user}}</p>
 </div>
 {% endblock %}
+{% block cuerpo %}
+<section>
+    <form action="/listar_admi" method="POST" onSubmit="return enviar_listar_usuario()">
+        <input type="submit" name="listar" value="LISTAR EMPLEADOS" id="le"/>
+    </form>
+</section>
+{% endblock %}
 <style type="text/css">
 </style>

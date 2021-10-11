@@ -7,6 +7,7 @@ def inicio():
 
 @app.route('/validar_usuario', methods=['POST'])
 def validar_usuario():
+    global usuario
     usuario = request.form["usuario"]
     if usuario=='Superadministrador':
         return render_template('dashboard.html', user=usuario)
@@ -19,6 +20,9 @@ def validar_usuario():
 def probando():
     return render_template('layout1.html')
 
+def enviar_listar_usuario():
+    redirect ('/listar_admi')
+
 @app.route('/editar_us') 
 def editar_us():
     return 'editar usuario propio'
@@ -27,9 +31,9 @@ def editar_us():
 def ver_reto():
     return 'ver retroalimentación'
 
-@app.route('/listar_admi') 
+@app.route('/listar_admi', methods=['POST']) 
 def listar_admi():
-    return 'listar usuarios administrador'
+    return render_template('listar_admi.html', user=usuario)
 
 @app.route('/verinfo_admi') 
 def verinfo_admi():

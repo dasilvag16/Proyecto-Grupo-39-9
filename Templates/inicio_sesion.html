@@ -54,10 +54,14 @@
 </style>
 <script type="text/javascript">
     function validar_formulario() {
+        let sw = true;
         let contraseña = document.getElementById("ps").value;
         if (contraseña==null || contraseña.length<8) {
             alert("¡La contraseña debe tener al menos 8 caracteres!");
+            sw = false;
+            document.getElementById("ps").focus();
         }
+        return sw
     }
 </script>
 {% endblock %}
