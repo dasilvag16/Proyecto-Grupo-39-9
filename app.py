@@ -16,48 +16,73 @@ def validar_usuario():
     else:
         return render_template('verinfo_us.html', user='Empleado')
 
+@app.route('/definicion_listar', methods=['POST'])
+def definicion_listar():
+    if usuario=='Administrador':
+        return redirect ('/listar_admi')
+    elif usuario=='Superadministrador':
+        return redirect ('/listar_super')
+
 @app.route('/probando')
 def probando():
     return render_template('layout1.html')
 
-def enviar_listar_usuario():
-    redirect ('/listar_admi')
+def enviar_usuario_nuevo():
+    return redirect('/registrar_usuarios')
 
-@app.route('/editar_us') 
+def enviar_verinfo():
+    return redirect('/verinfo_admi')
+
+def enviar_editar():
+    return redirect('/editar_admi')
+
+def enviar_eliminar():
+    return redirect('/eliminar')
+
+def enviar_generar_ret():
+    return redirect('/generar_ret')
+
+def enviar_editar_us():
+    return redirect('/editar_us')
+
+def enviar_ver_ret():
+    return redirect('/ver_ret')
+
+@app.route('/editar_us', methods=['POST']) 
 def editar_us():
-    return 'editar usuario propio'
+    return render_template('editar_us.html', user='Empleado')
 
-@app.route('/ver_ret') 
+@app.route('/ver_ret', methods=['POST']) 
 def ver_reto():
-    return 'ver retroalimentación'
+    return render_template('ver_ret.html', user='Empleado')
 
-@app.route('/listar_admi', methods=['POST']) 
+@app.route('/listar_admi') 
 def listar_admi():
     return render_template('listar_admi.html', user=usuario)
 
-@app.route('/verinfo_admi') 
+@app.route('/verinfo_admi', methods=['POST']) 
 def verinfo_admi():
-    return 'ver información administrador y superadministrador'
+    return render_template('verinfo_admi.html', user=usuario)
 
-@app.route('/registrar_usuarios') 
+@app.route('/registrar_usuarios', methods=['POST']) 
 def registrar_usuarios():
-    return 'registrar usuarios administrador y superadministrador'
+    return render_template('registrar_usuarios.html', user=usuario)
 
-@app.route('/editar_admi') 
+@app.route('/editar_admi', methods=['POST']) 
 def editar_admi():
-    return 'editar administrador y superadministrador'
+    return render_template('editar_admi.html', user=usuario)
 
-@app.route('/eliminar') 
+@app.route('/eliminar', methods=['POST']) 
 def eliminar():
-    return 'eliminar administrador y superadministrador'
+    return render_template('eliminar.html', user=usuario)
 
-@app.route('/generar_ret') 
+@app.route('/generar_ret', methods=['POST']) 
 def generar_ret():
-    return 'generar retroalimentacion administrador y superadministrador'
+    return render_template('generar_ret.html', user=usuario)
 
 @app.route('/listar_super') 
 def listar_super():
-    return 'listar usuarios superadministrador'
+    return render_template('listar_super.html', user=usuario)
 
 @app.route('/asignar_roles') 
 def asignar_roles():

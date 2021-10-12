@@ -4,3 +4,17 @@
     <p>{{user}}</p>
 </div>
 {% endblock %}
+{% block cuerpo %}
+<section>
+    <div>
+        <form action="/editar_us" method="POST" onSubmit="return enviar_editar_us()">
+            <input type="submit" name="editar_usuario" value="EDITAR" id="edit"/>
+        </form>
+    </div>
+    <div>
+        <form action="/ver_ret" method="POST" onSubmit="return enviar_ver_ret()">
+            <input type="submit" name="ver_retro" value="VER RETROALIMENTACIÓN" id="vr"/>
+        </form>
+    </div>
+</section>
+{% endblock %}

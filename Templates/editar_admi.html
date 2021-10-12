@@ -1,0 +1,15 @@
+{% extends 'layout1.html' %}
+{% block perfil %}
+<div id="derecha">
+    <p>{{user}}</p>
+</div>
+{% endblock %}
+{% block cuerpo %}
+<section>
+    <div>
+        <form action="/generar_ret" method="POST" onSubmit="return enviar_generar_ret()">
+            <input type="submit" name="generar_retro" value="GENERAR RETROALIMENTACIÓN" id="gr"/>
+        </form>
+    </div>
+</section>
+{% endblock %}
