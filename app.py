@@ -9,8 +9,12 @@ def inicio():
 def validar_usuario():
     global usuario
     usuario = request.form["usuario"]
+    empleados = 72
+    cargos = 10
+    establecidos = 150
+    cumplidos = 145
     if usuario=='Superadministrador':
-        return render_template('dashboard.html', user=usuario)
+        return render_template('dashboard.html', user=usuario, empleados=empleados, cargos=cargos, establecidos=establecidos, cumplidos=cumplidos)
     elif usuario=='Administrador':
         return render_template('dashboard.html', user=usuario)
     else:
@@ -62,7 +66,9 @@ def listar_admi():
 
 @app.route('/verinfo_admi', methods=['POST']) 
 def verinfo_admi():
-    return render_template('verinfo_admi.html', user=usuario)
+    global temporal
+    temporal = 'N/A'
+    return render_template('verinfo_admi.html', user=usuario, temporal=temporal)
 
 @app.route('/registrar_usuarios', methods=['POST']) 
 def registrar_usuarios():
@@ -70,7 +76,7 @@ def registrar_usuarios():
 
 @app.route('/editar_admi', methods=['POST']) 
 def editar_admi():
-    return render_template('editar_admi.html', user=usuario)
+    return render_template('editar_admi.html', user=usuario, temporal=temporal)
 
 @app.route('/eliminar', methods=['POST']) 
 def eliminar():

@@ -5,5 +5,130 @@
 </div>
 {% endblock %}
 {% block cuerpo %}
-
+<div>
+    <p>REGISTRAR EMPLEADO NUEVO</p>
+</div>
+<form action="">
+    <div>
+        <div>
+            <div>
+                <div>
+                <label class="" for="">Nombre (s):</label>
+                </div>
+                <input type="text" name="nombres" id="">
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Número identificación:</label>
+                </div>
+                <input type="number" name="identificacion" id="">
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Telefono fijo:</label>
+                </div>
+                <input type="tel" name="fijo" id="">
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Celular:</label>
+                </div>
+                <input type="tel" name="celular" id="">
+            </div>
+                <div>
+                <label class="" for="">Dependencia:</label>
+                </div>
+                <select name="dependencias" id="dep">
+                    <option value="" selected disabled hidden>{{temporal}}</option>
+                    <option value="gerencia">Gerencia</option>
+                    <option value="recursos_humanos">Recursos Humanos</option>
+                    <option value="atencion_cliente">Atención al Cliente</option>
+                    <option value="contabilidad">Contabilidad</option>
+                </select>
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Fecha de ingreso:</label>
+                </div>
+                <input type="date" name="ingreso" id="" value=>
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Fecha de terminación de contrato:</label>
+                </div>
+                <input type="date" name="terminacion" id="" value=>
+            </div>
+            <div>
+                <div>
+                    <label class="" for="">Tipo de contrato:</label>
+                </div>
+                <select name="contrato" id="con">
+                    <option value="" selected disabled hidden>{{temporal}}</option>
+                    <option value="fijo">Término fijo</option>
+                    <option value="indefinido">Término indefinido</option>
+                </select>
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Cargo:</label>
+                </div>
+                <input type="text" name="cargo" id="">
+        </div>
+        <div>
+            <div>
+                <div>
+                <label class="" for="">Apellidos:</label>
+                </div>
+                <input type="text" name="apellidos" id="">
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Correo personal:</label>
+                </div>
+                <input type="email" name="correo" id="">
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Dirección:</label>
+                </div>
+                <input type="text" name="direccion" id="">
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Salario:</label>
+                </div>
+                <input type="text" name="salario" id="">
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Usuario:</label>
+                </div>
+                <input type="text" name="usuario" id="">
+            </div>
+            <div>
+                <div>
+                <label class="" for="">Contraseña:</label>
+                </div>
+                <input type="text" name="contraseña" id="">
+            </div>
+            <button type="button">+</button>
+            <label class="" for="">Objetivos establecidos:</label>
+            <input type="text" name="establecidos" id="">
+            <div>
+                <div>
+                <label class="" for="">Reseña desempeño:</label>
+                </div>
+                <textarea id="res" name="reseña" rows="4" cols="50">{{temporal}}</textarea>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <input type="reset" value="X">
+        </div>
+        <div>
+            <input type="submit" value="Enviar" id="ev"/>
+        </div>
+    </div>
+</form>
 {% endblock %}

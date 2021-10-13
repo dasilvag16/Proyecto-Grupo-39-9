@@ -6,9 +6,64 @@
 {% endblock %}
 {% block cuerpo %}
 <section>
-    <form action="/definicion_listar" method="POST" onSubmit="return definicion_listar()">
-        <input type="submit" name="listar" value="LISTAR EMPLEADOS" id="le"/>
-    </form>
+    <div>
+        <div>
+            <img src={{ url_for('static', filename='Assets/staff.jfif') }} alt="">
+        </div>
+        <div>
+            <form action="/definicion_listar" method="POST" onSubmit="return definicion_listar()">
+                <input type="submit" name="listar" value="LISTAR EMPLEADOS" id="le"/>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div>
+            <p>ESTADÍSTICAS</p>
+        </div>
+        <div>
+            <select name="dependencias" id="dep">
+                <option value="" selected disabled hidden>DEPENDENCIA</option>
+                <option value="gerencia">Gerencia</option>
+                <option value="recursos_humanos">Recursos Humanos</option>
+                <option value="atencion_cliente">Atención al Cliente</option>
+                <option value="contabilidad">Contabilidad</option>
+            </select>
+        </div>
+        <div>
+            <div>
+                <div>
+                    <p>Cantidad de Empleados</p>
+                </div>
+                <div>
+                    {{empleados}}
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p>Cargos</p>
+                </div>
+                <div>
+                    {{cargos}}
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p>Cantidad de Objetivos Establecidos</p>
+                </div>
+                <div>
+                    {{establecidos}}
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p>Cantidad de Objetivos Cumplidos</p>
+                </div>
+                <div>
+                    {{cumplidos}}
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}
 <style type="text/css">
