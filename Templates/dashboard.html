@@ -5,9 +5,9 @@
 </div>
 {% endblock %}
 {% block cuerpo %}
-<section>
-    <div>
-        <div>
+<section class="pantalla_dividida">
+    <div id='dashboard1'>
+        <div id="img">
             <img src={{ url_for('static', filename='Assets/staff.jfif') }} alt="">
         </div>
         <div>
@@ -16,8 +16,8 @@
             </form>
         </div>
     </div>
-    <div>
-        <div>
+    <div  id='dashboard2'>
+        <div id="estadisticas">
             <p>ESTADÍSTICAS</p>
         </div>
         <div>
@@ -30,35 +30,35 @@
             </select>
         </div>
         <div>
-            <div>
-                <div>
+            <div class='divisiones'>
+                <div class='etiquetas'>
                     <p>Cantidad de Empleados</p>
                 </div>
-                <div>
+                <div class='variables'>
                     {{empleados}}
                 </div>
             </div>
-            <div>
-                <div>
+            <div class='divisiones'>
+                <div class='etiquetas'>
                     <p>Cargos</p>
                 </div>
-                <div>
+                <div class='variables'>
                     {{cargos}}
                 </div>
             </div>
-            <div>
-                <div>
+            <div class='divisiones'>
+                <div class='etiquetas'>
                     <p>Cantidad de Objetivos Establecidos</p>
                 </div>
-                <div>
+                <div class='variables'>
                     {{establecidos}}
                 </div>
             </div>
-            <div>
-                <div>
+            <div class='divisiones'>
+                <div class='etiquetas'>
                     <p>Cantidad de Objetivos Cumplidos</p>
                 </div>
-                <div>
+                <div class='variables'>
                     {{cumplidos}}
                 </div>
             </div>
@@ -66,5 +66,3 @@
     </div>
 </section>
 {% endblock %}
-<style type="text/css">
-</style>

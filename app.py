@@ -26,11 +26,7 @@ def definicion_listar():
         return redirect ('/listar_admi')
     elif usuario=='Superadministrador':
         return redirect ('/listar_super')
-
-@app.route('/probando')
-def probando():
-    return render_template('layout1.html')
-
+        
 def enviar_usuario_nuevo():
     return redirect('/registrar_usuarios')
 
