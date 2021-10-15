@@ -139,4 +139,24 @@ a{
     text-align: right;
 }
 
-/* registrar_usuarios.html */
+/* listar_super.html */
+#ListarUsuarios table th 
+{
+   color:black; ;
+}
+
+#ListarUsuarios table td 
+{
+   color:black;
+   padding: 1em;
+}
+
+#editarusuarioboton {
+    background-color: red;
+    color: white
+}
+
+#guardarcambiosrol {
+    background-color: red;
+    color: white
+}
