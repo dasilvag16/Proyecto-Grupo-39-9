@@ -6,6 +6,11 @@
 {% endblock %}
 {% block cuerpo %}
 <section>
+    <div id="editar_admibg">
+        <form action="/generar_ret" method="POST" onSubmit="return enviar_generar_ret()">
+            <input type="submit" name="generar_retro" value="GENERAR RETROALIMENTACIÓN" id="editar_admigr"/>
+        </form>
+    </div>
     <form action="">
         <div id="editar_admi">
             <div id="editar_admi1">
@@ -75,11 +80,6 @@
                 </div>
             </div>
             <div id="editar_admi2">
-                <div id="editar_admibg">
-                    <form action="/generar_ret" method="POST" onSubmit="return enviar_generar_ret()">
-                        <input type="submit" name="generar_retro" value="GENERAR RETROALIMENTACIÓN" id="editar_admigr"/>
-                    </form>
-                </div>
                 <div class="editar_admid">
                     <div>
                     <label class="" for="">Apellidos:</label>
