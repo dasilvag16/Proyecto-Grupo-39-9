@@ -389,3 +389,32 @@ a{
     margin-top: 20px;
     margin-bottom: 10px;
 }
+/* listar_super.html */
+#ListarUsuarios table th 
+{
+   color:black; 
+   background-color:rgba(0, 0, 0, 0.055)
+   ;
+}
+
+#ListarUsuarios table td 
+{
+   color:black;
+   padding: 1em;
+   background-color:rgba(0, 0, 0, 0.055)
+}
+
+#editarusuarioboton {
+    background-color: red;
+    color: white
+}
+
+#guardarcambiosrol {
+    background-color: red;
+    color: white
+}
+
+#totalregistros p {
+    margin-left: 5em;
+}
+
