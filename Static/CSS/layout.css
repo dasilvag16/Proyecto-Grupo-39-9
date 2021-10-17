@@ -138,3 +138,283 @@ a{
     font-size: 50px;
     text-align: right;
 }
+
+/* verinfo_admi.html */
+#verinfo_admi {
+    display: flex;
+}
+
+#verinfo_admi1{
+    margin-right: 250px;
+}
+
+#verinfo_admi2{
+    margin-left: 250px;
+}
+
+#verinfo_admib{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.verinfo_admid{
+    width: 270px;
+    background-color: #CEC7C7;
+}
+
+#el{
+    margin-left: 10px;
+    margin-right: 40px;
+    width: 85px;
+    height: 35px;
+    background-color: red;
+    color: white;
+    border: 0px;
+    border-radius: 8px;
+}
+
+#ed{
+    margin-left: 50px;
+    margin-right: 10px;
+    height: 35px;
+    width: 70px;
+    background-color: red;
+    color: white;
+    border: 0px;
+    border-radius: 8px;
+}
+
+#verinfo_admi2 button{
+    background-color: black;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+}
+
+#b1{
+    margin-bottom: 20px;
+    margin-top: 25px;
+    margin-left: 60px;
+}
+
+#b2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+}
+
+#w3review{
+    width: 270px;
+    background-color: #CEC7C7;
+    text-align: left;
+    border: 0px;
+    margin-bottom: 10px;
+}
+
+/* registrar_usuarios.html */
+
+#registrar_usuarios {
+    display: flex;
+}
+
+#registrar_usuarios1{
+    margin-right: 300px;
+}
+
+#registrar_usuarios2{
+    margin-left: 300px;
+}
+
+#registrar_usuariosb{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.registrar_usuariosd input{
+    width: 270px;
+}
+
+#registrar_usuarios2 button{
+    position: relative;
+    right: 40px;
+    border-radius: 15px;
+    color: white;
+    background-color: #F9B006;
+}
+
+#registrar_usuarios2 #est{
+    position: relative;
+    right: 28px;
+}
+
+#d1, #d2{
+    width: 140px;
+}
+
+.registrar_usuariosd div{
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#res{
+    width: 270px;
+}
+
+#registrar_usuarios0 p{
+    background-color: black;
+    color: white;
+    font: engraverse-bold;
+    font-size: 25px;
+    width: 500px;
+    height: 40px;
+    padding-top: 13px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    left: 350px;
+}
+
+#reset input{
+    border: 0px;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    width: 30px;
+    height: 30px;
+    margin-left: 500px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#search_ input{
+    width: 70px;
+    border: 0px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* editar_admi.html */
+
+#editar_admi {
+    display: flex;
+}
+
+#editar_admi1{
+    margin-top: 0px;
+    margin-right: 300px;
+}
+
+#editar_admi2{
+    margin-left: 300px;
+}
+
+#editar_admib{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.editar_admid input{
+    width: 270px;
+}
+
+.editar_admid div{
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#editar_admires{
+    width: 270px;
+}
+
+#editar_admid1, #editar_admid2{
+    width: 140px;
+}
+
+#editar_admib1{
+    margin-bottom: 10px;
+    margin-top: 25px;
+    margin-left: 60px;
+    background-color: black;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+}
+
+#editar_admib2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 60px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+}
+
+#editar_admiedit{
+    width: 70px;
+    border: 0px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 5px; 
+    margin-left: 550px;
+}
+
+#editar_admigr{
+    width: 250px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    font: engraverse-bold;
+    border: 0px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+/* listar_super.html */
+#ListarUsuarios table th 
+{
+   color:black; 
+   background-color:rgba(0, 0, 0, 0.055)
+   ;
+}
+
+#ListarUsuarios table td 
+{
+   color:black;
+   padding: 1em;
+   background-color:rgba(0, 0, 0, 0.055)
+}
+
+#editarusuarioboton {
+    background-color: red;
+    color: white
+}
+
+#guardarcambiosrol {
+    background-color: red;
+    color: white
+}
+
+#totalregistros p {
+    margin-left: 5em;
+}
+

@@ -6,20 +6,219 @@
 {% endblock %}
 {% block cuerpo %}
 <section>
+    <br>
     <div>
         <form action="/registrar_usuarios" method="POST" onSubmit="return enviar_usuario_nuevo()">
             <input type="submit" name="usuario_nuevo" value="USUARIO NUEVO" id="un"/>
         </form>
-    </div>
+    </div> <br> 
     <div>
         <form action="/verinfo_admi" method="POST" onSubmit="return enviar_verinfo()">
             <input type="submit" name="ver_informacion" value="VER INFORMACIÓN" id="vi"/>
         </form>
     </div>
-    <div>
+    <br><br><br>
+
+    <center><div id="buscar_usuario">
+    <label>Buscar <input type="text" id="BuscarUsuario" name="BuscarUsuario"></label>
+    </div></center>
+<br><br>
+   <center> <div id="ListarUsuarios">
+        <table class="Listar">
+            <tr>
+                <th scope="row">NOMBRE</th>
+                <th>DOCUMENTO</th>
+                <th colspan="2">ROL</th>
+                
+              </tr> 
+
+            <tr>
+             <td>NOMBRE Y APELLIDOS DEL USUARIO 1</td>
+                <td> IDENTIFICACIÓN 1</td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>NOMBRE Y APELLIDOS DEL USUARIO 2</td>
+                <td> IDENTIFICACIÓN 2</td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>NOMBRE Y APELLIDOS DEL USUARIO 3</td>
+                <td> IDENTIFICACIÓN 3 </td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>NOMBRE Y APELLIDOS DEL USUARIO 4</td>
+                <td> IDENTIFICACIÓN 4</td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>NOMBRE Y APELLIDOS DEL USUARIO 5</td>
+                <td> IDENTIFICACIÓN 5</td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            <tr>
+                <td>NOMBRE Y APELLIDOS DEL USUARIO 5</td>
+                <td> IDENTIFICACIÓN 5</td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>NOMBRE Y APELLIDOS DEL USUARIO 6</td>
+                <td> IDENTIFICACIÓN 6</td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>NOMBRE Y APELLIDOS DEL USUARIO 7</td>
+                <td> IDENTIFICACIÓN 7</td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>NOMBRE Y APELLIDOS DEL USUARIO 8</td>
+                <td> IDENTIFICACIÓN 8</td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>NOMBRE Y APELLIDOS DEL USUARIO 9</td>
+                <td> IDENTIFICACIÓN 9</td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>NOMBRE Y APELLIDOS DEL USUARIO 10</td>
+                <td> IDENTIFICACIÓN 10</td>
+                <td>
+                    <select name="Roles" id="roles">
+                    <option value="" selected disabled hidden>ASIGNAR ROL</option>
+                    <option value="gerencia">Usuario</option>
+                    <option value="recursos_humanos">Administrador</option>
+                    </select>
+                </td>
+                <td> 
+                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
+                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                    </form>
+                </td>
+            </tr>
+        </table>    
+    </div> </center>
+    <br> <br>
+    <center><div>
         <form action="" method="" onSubmit="">
-            <input type="submit" name="asignar_rol" value="ASIGNAR ROL" id="ar"/>
+            <input type="submit" name="asignar_rol" value="GUARDAR CAMBIOS" id="guardarcambiosrol"/>
         </form>
-    </div>
+    </div> </center>  
+    <br> <br> 
+
+<div id=totalregistros>    
+<strong> <p>Total registros: XX</p> </strong>
 </section>
+</div>
 {% endblock %}

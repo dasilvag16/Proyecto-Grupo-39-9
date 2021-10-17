@@ -1,0 +1,31 @@
+
+#imagusuario p {
+    font-size:1.2em
+}
+
+#datosretro p{
+    color:rgb(0, 0, 0);
+    background-color:rgba(7, 7, 7, 0.068);
+    font-size:1.3em;
+    padding: 1em
+}
+
+#datosretro{
+    max-width:1000px
+}
+
+#puntajeretro{
+    width:200px;
+}
+
+#puntajeretro p{
+    text-align:center;
+    font-size:2em;
+    background-color:red;
+    color: white;
+}
+
+#datos1{
+    display: flex;
+    padding:2em;
+}
