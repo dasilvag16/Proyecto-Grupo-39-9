@@ -16,7 +16,7 @@ def validar_usuario():
     if usuario=='Superadministrador':
         return render_template('dashboard.html', user=usuario, empleados=empleados, cargos=cargos, establecidos=establecidos, cumplidos=cumplidos)
     elif usuario=='Administrador':
-        return render_template('dashboard.html', user=usuario)
+        return render_template('dashboard.html', user=usuario, empleados=empleados, cargos=cargos, establecidos=establecidos, cumplidos=cumplidos)
     else:
         return render_template('verinfo_us.html', user='Empleado')
 
@@ -27,26 +27,28 @@ def definicion_listar():
     elif usuario=='Superadministrador':
         return redirect ('/listar_super')
         
-def enviar_usuario_nuevo():
-    return redirect('/registrar_usuarios')
+# def enviar_usuario_nuevo():
+#     return redirect('/registrar_usuarios')
 
-def enviar_verinfo():
-    return redirect('/verinfo_admi')
+# def enviar_verinfo():
+#     return redirect('/verinfo_admi')
 
-def enviar_editar():
-    return redirect('/editar_admi')
+# def enviar_editar():
+#     return redirect('/editar_admi')
 
-def enviar_eliminar():
-    return redirect('/eliminar')
+# def enviar_eliminar():
+#     return redirect('/eliminar')
 
-def enviar_generar_ret():
-    return redirect('/generar_ret')
+# def enviar_generar_ret():
+#     return redirect('/generar_ret')
 
-def enviar_editar_us():
-    return redirect('/editar_us')
+# def enviar_editar_us():
+#     return redirect('/editar_us')
 
-def enviar_ver_ret():
-    return redirect('/ver_ret')
+# def enviar_ver_ret():
+#     return redirect('/ver_ret')
+
+#Borrado temporalmente debido a pruebas
 
 @app.route('/editar_us', methods=['POST']) 
 def editar_us():
