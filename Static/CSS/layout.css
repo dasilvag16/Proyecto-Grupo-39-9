@@ -81,6 +81,21 @@ a {
     right: 80px;
 }
 
+.formulario__grupo-terminos{
+	grid-column: span 2;
+}
+
+.formulario__grupo-input {
+	position: relative;
+}
+
+.formulario__label {
+	display: block;
+	font-weight: 700;
+	padding: 10px;
+	cursor: pointer;
+}
+
 /* dashboard.html */
 
 .pantalla_dividida {
