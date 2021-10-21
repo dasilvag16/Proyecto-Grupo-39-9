@@ -55,7 +55,7 @@ puedes arrancar el proyecto ejecutando:
 
 ## Nota importante
 
-> Recuerda que antes que todo debes crear tu entorno vortual con el comando .
+> Recuerda que antes que todo debes crear tu entorno virtual con el comando .
 
 virtualenv env
 
