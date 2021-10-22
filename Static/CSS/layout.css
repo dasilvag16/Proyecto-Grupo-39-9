@@ -504,6 +504,7 @@ input {
     background-color:rgb(0, 0, 0);
     color: white;
     width:200px;
+    margin-right: 300px;
 }
 
 #datos_de_usuario {
@@ -511,6 +512,7 @@ input {
     background-color:rgb(0, 0, 0);
     color: white;
     width:200px;
+    margin-right: 300px;
 }
 
 #guardarcambioseditar {
@@ -530,7 +532,8 @@ input {
 }
 
 #datosusuario{
-    width:500px
+    width:500px;
+    
 }
 #datosusuario2{
     width:500px
@@ -538,5 +541,9 @@ input {
 
 #datos1{
     display: flex;
-    align: center;
+    margin-left: 65px;
+}
+
+#guardarcambios_editar{
+    margin-right: 300px;
 }
