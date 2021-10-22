@@ -81,15 +81,11 @@ a {
     right: 80px;
 }
 
-.formulario__grupo-terminos{
+#grupo-terminos{
 	grid-column: span 2;
 }
 
-.formulario__grupo-input {
-	position: relative;
-}
-
-.formulario__label {
+#formulario__label {
 	display: block;
 	font-weight: 700;
 	padding: 10px;

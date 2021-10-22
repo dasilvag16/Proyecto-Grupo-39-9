@@ -4,23 +4,23 @@
 </head>
 {% block cuerpo %}
 <section>
-    <form action="/validar_usuario" method="POST" onsubmit="return validar_formulario()">
+    <form action="/login" method="POST" >
         <div id="label1">
-            <label for="nb">USUARIO</label>
+            <label for="us">USUARIO</label>
         </div>
         <div>
             <input type="text" name="usuario" id="us" required="">
         </div>
         <div id="label2">
-            <label for="nb">CONTRASEÑA</label>
+            <label for="ps">CONTRASEÑA</label>
         </div>
         <div>
             <input type="password" name="contraseña" id="ps" required="">
         </div>
-        <div class="formulario__grupo" id="grupo__terminos">
-            <label class="formulario__label">
+        <div id="grupo__terminos">
+            <label id="formulario__label">
                 <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos" required="">
-                Acepto los Terminos y Condiciones
+                Acepto los Términos y Condiciones
             </label>
         </div>
         <div id="ingresar">
