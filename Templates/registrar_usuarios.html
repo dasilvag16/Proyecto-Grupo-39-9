@@ -5,138 +5,163 @@
 </div>
 {% endblock %}
 {% block cuerpo %}
-<div id="registrar_usuarios0">
-    <p>REGISTRAR EMPLEADO NUEVO</p>
-</div>
-<form action="">
-    <div id="registrar_usuarios">
-        <div id="registrar_usuarios1">
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Nombre (s):</label>
+    <div id="registrar_usuarios0">
+        <p>REGISTRAR EMPLEADO NUEVO</p>
+    </div>
+    <main>
+        <form action="" class="formulario" id="formulario">
+            <!-- Grupo: Nombre -->
+            <div class="formulario__grupo" id="grupo__nombre" required="">
+                <label for="nombre" class="formulario__label">Nombre(s)</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="nombre" id="nombre" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <input type="text" name="nombres" id="" required="">
+                <p class="formulario__input-error">Este campo solo admite letras</p>
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Número identificación:</label>
+
+            <!-- Grupo: Apellido -->
+            <div class="formulario__grupo" id="grupo__apellido" required="">
+                <label for="apellido" class="formulario__label">Apellidos</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="apellido" id="apellido" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <input type="number" name="identificacion" id="" required="">
+                <p class="formulario__input-error">Este campo solo admite letras</p>
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Telefono fijo:</label>
+
+            <!-- Grupo: Numero de id -->
+            <div class="formulario__grupo" id="grupo__numeroid"required="">
+                <label for="numeroid" class="formulario__label">Documento</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="formulario__input" name="numeroid" id="numeroid">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <input type="tel" name="fijo" id="">
+                <p class="formulario__input-error">Este campo solo admite números</p>
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Celular:</label>
+            <!-- Grupo: Correo Electronico -->
+            <div class="formulario__grupo" id="grupo__correo"required="">
+                <label for="correo" class="formulario__label">Correo Electrónico</label>
+                <div class="formulario__grupo-input">
+                    <input type="email" class="formulario__input" name="correo" id="correo">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <input type="tel" name="celular" id="">
+                <p class="formulario__input-error">Escriba una dirección de correo válida</p>
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Dependencia:</label>
+            <!-- Grupo: Teléfono -->
+            <div class="formulario__grupo" id="grupo__telefono" >
+                <label for="telefono" class="formulario__label">Teléfono</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="formulario__input" name="telefono" id="telefono" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
+                <p class="formulario__input-error">Este campo solo admite números</p>
+            </div>
+            <!-- Grupo: Dirección -->
+            <div class="formulario__grupo" id="grupo__direccion" >
+                <label for="direccion" class="formulario__label">Dirección</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="direccion" id="direccion" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Ingrese la dirección completa</p>
+            </div>
+
+            <!-- Grupo: Celular -->
+            <div class="formulario__grupo" id="grupo__celular">
+                <label for="celular" class="formulario__label">Celular</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="formulario__input" name="celular" id="celular" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Este campo solo admite números</p>
+            </div>
+            
+            <!-- Grupo: Salario -->
+            <div class="formulario__grupo" id="grupo__salario"required="">
+                <label for="salario" class="formulario__label">Salario</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="formulario__input" name="salario" id="salario" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Este campo solo admite números</p>
+            </div>
+            <!-- Grupo: Dependencia -->
+            <div class="formulario__grupo" id="grupo__dependencia" required="">
+                <label for="dependencia" class="formulario__label">Dependencia</label>
                 <select name="dependencias" id="dep" required="">
-                    <option value="" selected disabled hidden>{{temporal}}</option>
+                    <option value="" selected disabled hidden>Seleccione</option>
                     <option value="gerencia">Gerencia</option>
                     <option value="recursos_humanos">Recursos Humanos</option>
                     <option value="atencion_cliente">Atención al Cliente</option>
                     <option value="contabilidad">Contabilidad</option>
                 </select>
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Fecha de ingreso:</label>
-                </div>
-                <input type="date" name="ingreso" id="d1" required="" value=>
-            </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Fecha de terminación de contrato:</label>
-                </div>
-                <input type="date" name="terminacion" id="d2" required="" value=>
-            </div>
-            <div class="registrar_usuariosd">
-                <div>
-                    <label class="" for="">Tipo de contrato:</label>
-                </div>
+            <!-- Grupo: Tipo de contrato -->
+            <div class="formulario__grupo" id="grupo__tipocontrato"required="">
+                <label for="tipocontrato" class="formulario__label">Tipo de contrato</label>
                 <select name="contrato" id="con" required="">
-                    <option value="" selected disabled hidden>{{temporal}}</option>
+                    <option value="" selected disabled hidden>Seleccione</option>
                     <option value="fijo">Término fijo</option>
                     <option value="indefinido">Término indefinido</option>
                 </select>
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Cargo:</label>
+
+            <!-- Grupo: Usuario -->
+            <div class="formulario__grupo" id="grupo__usuario" required="">
+                <label for="usuario" class="formulario__label">Usuario</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="usuario" id="usuario">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <input type="text" name="cargo" id="" required="">
+                <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
             </div>
-        </div>
-        <div id="registrar_usuarios2">
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Apellidos:</label>
+
+            <!-- Grupo: Fecha de ingreso -->
+            <div class="formulario__grupo" id="grupo__fechaingreso" required="">
+                <label for="fechaingreso" class="formulario__label">Fecha de ingreso</label>
+                <div class="formulario__grupo-input">
+                    <input type="date" class="formulario__input" name="fechaingreso" id="fechaingreso" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <input type="text" name="apellidos" id="" required="">
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Correo personal:</label>
+            
+            <!-- Grupo: Contraseña -->
+            <div class="formulario__grupo" id="grupo__password" required="">
+                <label for="password" class="formulario__label">Contraseña</label>
+                <div class="formulario__grupo-input">
+                    <input type="password" class="formulario__input" name="password" id="password">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <input type="email" name="correo" id="" required="">
+                <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Dirección:</label>
+            <!-- Grupo: Fecha de terminacion de contrato -->
+            <div class="formulario__grupo" id="grupo__fechaterm"required="">
+                <label for="fechaterm" class="formulario__label">Fecha de terminación de contrato</label>
+                <div class="formulario__grupo-input">
+                    <input type="date" class="formulario__input" name="fechaterm" id="fechaterm" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <input type="text" name="direccion" id="">
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Salario:</label>
+            
+            <!-- Grupo: Cargo -->
+            <div class="formulario__grupo" id="grupo__cargo" required="">
+                <label for="nombre" class="formulario__label">Cargo</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="cargo" id="cargo" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <input type="text" name="salario" id="" required="">
+                <p class="formulario__input-error">Este campo solo admite letras</p>
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Usuario:</label>
-                </div>
-                <input type="text" name="usuario" id="" required="">
+
+
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button type="submit" class="formulario__btn">Registrar usuario</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">¡Usuario registrado exitosamente!</p>
             </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Contraseña:</label>
-                </div>
-                <input type="text" name="contraseña" id="" required="">
-            </div>
-            <!--
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Objetivos establecidos:</label>
-                </div>
-                <button type="button">+</button>
-                <input type="text" name="establecidos" id="est">
-            </div>
-            <div class="registrar_usuariosd">
-                <div>
-                <label class="" for="">Reseña desempeño:</label>
-                </div>
-                <textarea id="res" name="reseña" rows="4" cols="50">{{temporal}}</textarea>
-            </div>
-        -->
-        </div>
-    </div>
-    <div id="registrar_usuariosb">
-        <div id="reset">
-            <input type="reset" value="X">
-        </div>
-        <div id="search_">
-            <input type="submit" value="Enviar" id="ev"/>
-        </div>
-    </div>
-</form>
+        </form>
+    </main>
+    <script src="Scripts/formulario.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
 {% endblock %}

@@ -1,7 +1,7 @@
 /* layout.html */
 
 body {
-    background-color: #F9B006;
+    background-color: rgba(105, 104, 104, 0.35);
     font-family: 'Mulish',
         sans-serif;
     font-weight: bold;
@@ -252,6 +252,10 @@ a {
     display: flex;
 }
 
+#registrar_usuarios0 {
+ 
+}
+
 #registrar_usuarios1 {
     margin-right: 300px;
 }
@@ -275,7 +279,7 @@ a {
     right: 40px;
     border-radius: 15px;
     color: white;
-    background-color: #F9B006;
+    background-color: rgba(105, 104, 104, 0.35);
 }
 
 #registrar_usuarios2 #est {
