@@ -1,7 +1,7 @@
 /* layout.html */
 
 body {
-    background-color: #F9B006;
+    background-color: rgba(105, 104, 104, 0.35);
     font-family: 'Mulish',
         sans-serif;
     font-weight: bold;
@@ -81,15 +81,11 @@ a {
     right: 80px;
 }
 
-.formulario__grupo-terminos{
+#grupo-terminos{
 	grid-column: span 2;
 }
 
-.formulario__grupo-input {
-	position: relative;
-}
-
-.formulario__label {
+#formulario__label {
 	display: block;
 	font-weight: 700;
 	padding: 10px;
@@ -256,6 +252,10 @@ a {
     display: flex;
 }
 
+#registrar_usuarios0 {
+ 
+}
+
 #registrar_usuarios1 {
     margin-right: 300px;
 }
@@ -279,7 +279,7 @@ a {
     right: 40px;
     border-radius: 15px;
     color: white;
-    background-color: #F9B006;
+    background-color: rgba(105, 104, 104, 0.35);
 }
 
 #registrar_usuarios2 #est {
@@ -504,6 +504,7 @@ input {
     background-color:rgb(0, 0, 0);
     color: white;
     width:200px;
+    margin-right: 300px;
 }
 
 #datos_de_usuario {
@@ -511,6 +512,7 @@ input {
     background-color:rgb(0, 0, 0);
     color: white;
     width:200px;
+    margin-right: 300px;
 }
 
 #guardarcambioseditar {
@@ -530,7 +532,8 @@ input {
 }
 
 #datosusuario{
-    width:500px
+    width:500px;
+    
 }
 #datosusuario2{
     width:500px
@@ -538,5 +541,9 @@ input {
 
 #datos1{
     display: flex;
-    align: center;
+    margin-left: 65px;
+}
+
+#guardarcambios_editar{
+    margin-right: 300px;
 }

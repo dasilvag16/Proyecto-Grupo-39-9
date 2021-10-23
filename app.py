@@ -136,3 +136,4 @@ def listar_super():
 @app.route('/asignar_roles')
 def asignar_roles():
     return 'asignar roles'
+
