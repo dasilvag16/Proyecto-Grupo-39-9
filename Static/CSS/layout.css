@@ -436,6 +436,25 @@ a {
     background-color: rgba(0, 0, 0, 0.055)
 }
 
+#vi {
+    width: 100%;
+	background: rgb(161, 205, 246);
+	border: 3px solid transparent;
+	border-radius: 15px;
+	height: 35px;
+	line-height: 45px;
+	padding: 0 20px 0 10px;
+}
+
+#un{
+    background-color: white;
+    border: 3px solid transparent;
+	border-radius: 15px;
+	height: 35px;
+	line-height: 45px;
+	padding: 0 20px 0 10px;
+}
+
 #editarusuarioboton {
     background-color: red;
     color: white

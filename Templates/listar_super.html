@@ -12,15 +12,11 @@
             <input type="submit" name="usuario_nuevo" value="USUARIO NUEVO" id="un"/>
         </form>
     </div> <br> 
-    <div>
-        <form action="/verinfo_admi" method="POST" onSubmit="return enviar_verinfo()">
-            <input type="submit" name="ver_informacion" value="VER INFORMACIÓN" id="vi"/>
-        </form>
-    </div>
+    
     <br><br><br>
 
     <center><div id="buscar_usuario">
-    <label>Buscar <input type="text" id="BuscarUsuario" name="BuscarUsuario"></label>
+    <label>Buscar cédula <input type="text" id="BuscarUsuario" name="BuscarUsuario"></label>
     </div></center>
 <br><br>
    <center> <div id="ListarUsuarios">
@@ -29,7 +25,7 @@
                 <th scope="row">NOMBRE</th>
                 <th>DOCUMENTO</th>
                 <th colspan="2">ROL</th>
-                
+                <th</th>
               </tr> 
 
             <tr>
@@ -38,17 +34,17 @@
                 <td>
                     <select name="Roles" id="roles">
                     <option value="" selected disabled hidden>ASIGNAR ROL</option>
-                    <option value="gerencia">Usuario</option>
+                    <option value="gerencia">Empleado</option>
                     <option value="recursos_humanos">Administrador</option>
                     </select>
                 </td>
-                <td> 
-                    <form action="/editar_us" method="POST" onSubmit="return editar_usuario()">
-                        <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
+                <td>
+                    <form action="/verinfo_admi" method="POST" onSubmit="return enviar_verinfo()">
+                    <input type="submit" name="ver_informacion" value="VER INFORMACIÓN 1" id="vi"/>
                     </form>
                 </td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>NOMBRE Y APELLIDOS DEL USUARIO 2</td>
                 <td> IDENTIFICACIÓN 2</td>
                 <td>
@@ -206,15 +202,11 @@
                         <input type="submit" name="editar_usuario" value="EDITAR DATOS" id="editarusuarioboton"/>
                     </form>
                 </td>
-            </tr>
+            </tr> -->
         </table>    
     </div> </center>
     <br> <br>
-    <center><div>
-        <form action="" method="" onSubmit="">
-            <input type="submit" name="asignar_rol" value="GUARDAR CAMBIOS" id="guardarcambiosrol"/>
-        </form>
-    </div> </center>  
+      
     <br> <br> 
 
 <div id=totalregistros>    
