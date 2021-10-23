@@ -4,7 +4,7 @@ from sqlite3 import Error
 conexion = ''
 def get_db():
     try:
-        conexion = sqlite3.connect("GestionEmpleados_DB")
+        conexion = sqlite3.connect("database/GestionEmpleados_DB")
         return conexion
     except Error:
         print(Error)

@@ -4,13 +4,12 @@
 # -------------------------------------------------------------------------------
 
 # Importamos librerías
-from flask import Flask, render_template, request,jsonify,redirect
+from flask import Flask, render_template, request,jsonify,redirect, url_for
 
 # Importamos SQLite
 import sqlite3 as sql
 
-#importamos conexcion con base datos
-import db
+
 
 # Definimos la aplicación
 app = Flask(__name__)
@@ -55,9 +54,9 @@ def validar():
 
     #verifica que sea POST
     if request.method == 'POST':
+        global usuario
 
         #obteniendo datos
-        global usuario
         usuario=request.form['usuario']
         password=request.form['contraseña']
         
@@ -78,35 +77,13 @@ def validar():
         else:
                     return render_template('inicio_sesion.html')
 
-@app.route('/definicion_listar', methods=['POST'])  # Error de metodo
+
+@app.route('/definicion_listar', methods=['POST']) 
 def definicion_listar():
     if usuario=='admin':
         return redirect ('/listar_admi')
     elif usuario=='sadmin':
         return redirect ('/listar_super')
-        
-# def enviar_usuario_nuevo():
-#     return redirect('/registrar_usuarios')
-
-# def enviar_verinfo():
-#     return redirect('/verinfo_admi')
-
-# def enviar_editar():
-#     return redirect('/editar_admi')
-
-# def enviar_eliminar():
-#     return redirect('/eliminar')
-
-# def enviar_generar_ret():
-#     return redirect('/generar_ret')
-
-# def enviar_editar_us():
-#     return redirect('/editar_us')
-
-# def enviar_ver_ret():
-#     return redirect('/ver_ret')
-
-#Borrado temporalmente debido a pruebas
 
 
 @app.route('/editar_us', methods=['POST'])
