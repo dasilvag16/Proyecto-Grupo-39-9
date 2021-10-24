@@ -4,7 +4,7 @@
 # -------------------------------------------------------------------------------
 
 # Importamos librerías
-from flask import Flask, render_template, request,jsonify,redirect, url_for
+from flask import Flask, render_template, request,jsonify,redirect, url_for, flash
 
 # Importamos SQLite
 import sqlite3 as sql
@@ -109,8 +109,8 @@ def verinfo_admi():
 
 
 @app.route('/registrar_usuarios', methods=['POST'])
-def registrar_usuarios():
-    return render_template('registrar_usuarios.html', user=usuario)
+def registrar_usuarios():    
+        return render_template('registrar_usuarios.html') #user=usuario)
 
 
 @app.route('/editar_admi', methods=['POST'])
