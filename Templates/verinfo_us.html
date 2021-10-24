@@ -12,7 +12,7 @@
         <div class="formulario__grupo" id="grupo__nombre" required="">
             <label for="nombre" class="formulario__label">Nombre(s)</label>
             <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="nombre" id="nombre" >
+                <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Nombre(s)">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">Este campo solo admite letras</p>
@@ -22,17 +22,17 @@
         <div class="formulario__grupo" id="grupo__apellido" required="">
             <label for="apellido" class="formulario__label">Apellidos</label>
             <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="apellido" id="apellido" >
+                <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Apellidos">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">Este campo solo admite letras</p>
         </div>
 
         <!-- Grupo: Numero de id -->
-        <div class="formulario__grupo" id="grupo__numeroid"required="">
-            <label for="numeroid" class="formulario__label">Documento</label>
+        <div class="formulario__grupo" id="grupo__cedula"required="">
+            <label for="cedula" class="formulario__label">Documento</label>
             <div class="formulario__grupo-input">
-                <input type="number" class="formulario__input" name="numeroid" id="numeroid">
+                <input type="number" class="formulario__input" name="cedula" id="cedula" placeholder="XXXXXXXX">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">Este campo solo admite números</p>
@@ -41,7 +41,7 @@
         <div class="formulario__grupo" id="grupo__correo"required="">
             <label for="correo" class="formulario__label">Correo Electrónico</label>
             <div class="formulario__grupo-input">
-                <input type="email" class="formulario__input" name="correo" id="correo">
+                <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Correo@correo.com">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">Escriba una dirección de correo válida</p>
@@ -50,7 +50,7 @@
         <div class="formulario__grupo" id="grupo__telefono" >
             <label for="telefono" class="formulario__label">Teléfono</label>
             <div class="formulario__grupo-input">
-                <input type="number" class="formulario__input" name="telefono" id="telefono" >
+                <input type="number" class="formulario__input" name="telefono" id="telefono" placeholder="XXXXXXX" >
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">Este campo solo admite números</p>
@@ -59,7 +59,7 @@
         <div class="formulario__grupo" id="grupo__direccion" >
             <label for="direccion" class="formulario__label">Dirección</label>
             <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="direccion" id="direccion" >
+                <input type="text" class="formulario__input" name="direccion" id="direccion" placeholder="Dirección #XX-XX">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">Ingrese la dirección completa</p>
@@ -69,7 +69,7 @@
         <div class="formulario__grupo" id="grupo__celular">
             <label for="celular" class="formulario__label">Celular</label>
             <div class="formulario__grupo-input">
-                <input type="number" class="formulario__input" name="celular" id="celular" >
+                <input type="text" class="formulario__input" name="celular" id="celular" placeholder="XXXXXXXXX">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">Este campo solo admite números</p>
@@ -79,37 +79,26 @@
         <div class="formulario__grupo" id="grupo__salario"required="">
             <label for="salario" class="formulario__label">Salario</label>
             <div class="formulario__grupo-input">
-                <input type="number" class="formulario__input" name="salario" id="salario" >
+                <input type="number" class="formulario__input" name="salario" id="salario" placeholder="$XXXXXXXXX" >
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">Este campo solo admite números</p>
         </div>
         <!-- Grupo: Dependencia -->
-        <div class="formulario__grupo" id="grupo__dependencia" required="">
+        <div class="formulario__grupo" id="grupo__dependencia" required="" placeholder="Dependencia">
             <label for="dependencia" class="formulario__label">Dependencia</label>
-            <select name="dependencias" id="dep" required="">
-                <option value="" selected disabled hidden>Seleccione</option>
-                <option value="gerencia">Gerencia</option>
-                <option value="recursos_humanos">Recursos Humanos</option>
-                <option value="atencion_cliente">Atención al Cliente</option>
-                <option value="contabilidad">Contabilidad</option>
-            </select>
         </div>
         <!-- Grupo: Tipo de contrato -->
-        <div class="formulario__grupo" id="grupo__tipocontrato"required="">
+        <div class="formulario__grupo" id="grupo__tipocontrato"required="" placeholder="Tipo de contrato">
             <label for="tipocontrato" class="formulario__label">Tipo de contrato</label>
-            <select name="contrato" id="con" required="">
-                <option value="" selected disabled hidden>Seleccione</option>
-                <option value="fijo">Término fijo</option>
-                <option value="indefinido">Término indefinido</option>
-            </select>
+            
         </div>
 
         <!-- Grupo: Usuario -->
         <div class="formulario__grupo" id="grupo__usuario1" required="">
             <label for="usuario1" class="formulario__label">Usuario</label>
             <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="usuario1" id="usuario1">
+                <input type="text" class="formulario__input" name="usuario1" id="usuario1" placeholder="usuario">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
@@ -119,7 +108,7 @@
         <div class="formulario__grupo" id="grupo__fechaingreso" required="">
             <label for="fechaingreso" class="formulario__label">Fecha de ingreso</label>
             <div class="formulario__grupo-input">
-                <input type="date" class="formulario__input" name="fechaingreso" id="fechaingreso" >
+                <input type="date" class="formulario__input" name="fechaingreso" id="fechaingreso">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
         </div>
@@ -128,7 +117,7 @@
         <div class="formulario__grupo" id="grupo__password" required="">
             <label for="password" class="formulario__label">Contraseña</label>
             <div class="formulario__grupo-input">
-                <input type="password" class="formulario__input" name="password" id="password">
+                <input type="password" class="formulario__input" name="password" id="password" placeholder="Contraseña">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
@@ -146,26 +135,20 @@
         <div class="formulario__grupo" id="grupo__cargo" required="">
             <label for="nombre" class="formulario__label">Cargo</label>
             <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="cargo" id="cargo" >
+                <input type="text" class="formulario__input" name="cargo" id="cargo" placeholder="Cargo" >
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">Este campo solo admite letras</p>
         </div>
-
-
-        <div class="formulario__grupo formulario__grupo-btn-enviar">
-            <button type="submit" class="formulario__btn">Registrar usuario</button>
-            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">¡Usuario registrado exitosamente!</p>
-        </div>
     </form>
 </main>
-        
+<br>  
 <section>
     <div>
         <form action="/editar_us" method="POST" onSubmit="return enviar_editar_us()">
             <input type="submit" name="editar_usuario" value="EDITAR" id="edit"/>
         </form>
-    </div>
+    </div> <br> 
     <div>
         <form action="/ver_ret" method="POST" onSubmit="return enviar_ver_ret()">
             <input type="submit" name="ver_retro" value="VER RETROALIMENTACIÓN" id="vr"/>
