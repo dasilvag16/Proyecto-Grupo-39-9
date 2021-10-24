@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, redirect
-import db
+from flask import Flask, render_template, request, redirect, flash,url_for
+import sqlite3 as sql
 
 app = Flask(__name__)
 
@@ -111,7 +111,7 @@ def asignar_roles():
 
 @app.route('/registrar_usuarios', methods=['POST'])
 def registrar_usuarios():
-    #if request.method =='POST':
+    if request.method =='POST':
         nombre = request.form['nombre']
         apellido = request.form['apellido']
         cedula = request.form['cedula']
@@ -127,4 +127,10 @@ def registrar_usuarios():
         password = request.form['password']
         fechaterm = request.form['fechaterm']
         cargo = request.form['cargo']
-        return render_template('registrar_usuarios.html', user=usuario)
+        con = sql.connect("gestionempleados.db")
+        cur = con.cursor()
+        cur.execute("INSERT INTO contacts (nombre, apellido, cedula, correo, telefono, direccion, celular, salario, dependencias, contrato, usuario, fechaingreso, password,fechaterm,cargo) VALUES ('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format (nombre, apellido, cedula, correo, telefono, direccion, celular, salario, dependencias, contrato, usuario, fechaingreso, password,fechaterm,cargo))
+        con.commit()
+        flash('Contact Added successfully')
+        return redirect(url_for('index'))
+        
