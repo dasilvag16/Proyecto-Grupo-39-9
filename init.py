@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, redirect
-import db
+from flask import Flask, render_template, request, redirect, flash,url_for
+import sqlite3 as sql
 
 app = Flask(__name__)
 
@@ -107,3 +107,30 @@ def listar_super():
 @app.route('/asignar_roles')
 def asignar_roles():
     return 'asignar roles'
+
+
+@app.route('/registrar_usuarios', methods=['POST'])
+def registrar_usuarios():
+    if request.method =='POST':
+        nombre = request.form['nombre']
+        apellido = request.form['apellido']
+        cedula = request.form['cedula']
+        correo = request.form['correo']
+        telefono = request.form['telefono']
+        direccion = request.form['direccion']
+        celular = request.form['celular']
+        salario = request.form['salario']
+        dependencias = request.form['dependencias']
+        contrato = request.form['contrato']
+        usuario = request.form['usuario']
+        fechaingreso = request.form['fechaingreso']
+        password = request.form['password']
+        fechaterm = request.form['fechaterm']
+        cargo = request.form['cargo']
+        con = sql.connect("gestionempleados.db")
+        cur = con.cursor()
+        cur.execute("INSERT INTO contacts (nombre, apellido, cedula, correo, telefono, direccion, celular, salario, dependencias, contrato, usuario, fechaingreso, password,fechaterm,cargo) VALUES ('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format (nombre, apellido, cedula, correo, telefono, direccion, celular, salario, dependencias, contrato, usuario, fechaingreso, password,fechaterm,cargo))
+        con.commit()
+        flash('Contact Added successfully')
+        return redirect(url_for('index'))
+        
