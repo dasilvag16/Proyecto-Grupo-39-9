@@ -2,7 +2,7 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+	usuario1: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 	apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
 	password: /^.{4,12}$/, // 4 a 12 digitos.
@@ -16,7 +16,7 @@ const expresiones = {
 }
 
 const campos = {
-	usuario: false,
+	usuario1: false,
 	apellido: false,
 	nombre: false,
 	password: false,
@@ -35,8 +35,8 @@ const campos = {
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
-		case "usuario":
-			validarCampo(expresiones.usuario, e.target, 'usuario');
+		case "usuario1":
+			validarCampo(expresiones.usuario1, e.target, 'usuario1');
 		break;
 		case "apellido":
 			validarCampo(expresiones.apellido, e.target, 'apellido');

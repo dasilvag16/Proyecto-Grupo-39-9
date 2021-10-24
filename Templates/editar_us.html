@@ -10,51 +10,67 @@
         <p style="border: ridge #000000 2px;"> DATOS PERSONALES:</p>
     </div> </center>
     
-    </center><form action="">
-        <div id="editar_admi">
-            <div id="editar_admi1">
-                <div class="editar_admid">
-                    <div>
-                    <label class="" for="">Nombre (s):</label>
-                    </div>
-                    <input type="text" name="nombres" id="" value={{temporal}}>
+    <main>
+        <form action="" class="formulario" id="formulario">
+            <!-- Grupo: Nombre -->
+            <div class="formulario__grupo" id="grupo__nombre" required="">
+                <label for="nombre" class="formulario__label">Nombre(s)</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="nombre" id="nombre" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <div class="editar_admid">
-                    <div>
-                    <label class="" for="">Telefono fijo:</label>
-                    </div>
-                    <input type="tel" name="fijo" id="" value={{temporal}}>
-                </div>
-                <div class="editar_admid">
-                    <div>
-                    <label class="" for="">Celular:</label>
-                    </div>
-                    <input type="tel" name="celular" id="" value={{temporal}}>
-                </div>
+                <p class="formulario__input-error">Este campo solo admite letras</p>
             </div>
-            <div id="editar_admi2">
-                <div class="editar_admid">
-                    <div>
-                    <label class="" for="">Apellidos:</label>
-                    </div>
-                    <input type="text" name="apellidos" id="" value={{temporal}}>
+
+            <!-- Grupo: Apellido -->
+            <div class="formulario__grupo" id="grupo__apellido" required="">
+                <label for="apellido" class="formulario__label">Apellidos</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="apellido" id="apellido" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <div class="editar_admid">
-                    <div>
-                    <label class="" for="">Correo personal:</label>
-                    </div>
-                    <input type="email" name="correo" id="" value={{temporal}}>
-                </div>
-                <div class="editar_admid">
-                    <div>
-                    <label class="" for="">Dirección:</label>
-                    </div>
-                    <input type="text" name="direccion" id="" value={{temporal}}>
-                </div>
+                <p class="formulario__input-error">Este campo solo admite letras</p>
             </div>
-        </div>
-    </form> </center>
-    
+            <!-- Grupo: Correo Electronico -->
+            <div class="formulario__grupo" id="grupo__correo"required="">
+                <label for="correo" class="formulario__label">Correo Electrónico</label>
+                <div class="formulario__grupo-input">
+                    <input type="email" class="formulario__input" name="correo" id="correo">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Escriba una dirección de correo válida</p>
+            </div>
+            <!-- Grupo: Teléfono -->
+            <div class="formulario__grupo" id="grupo__telefono" >
+                <label for="telefono" class="formulario__label">Teléfono</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="formulario__input" name="telefono" id="telefono" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Este campo solo admite números</p>
+            </div>
+            <!-- Grupo: Dirección -->
+            <div class="formulario__grupo" id="grupo__direccion" >
+                <label for="direccion" class="formulario__label">Dirección</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="direccion" id="direccion" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Ingrese la dirección completa</p>
+            </div>
+
+            <!-- Grupo: Celular -->
+            <div class="formulario__grupo" id="grupo__celular">
+                <label for="celular" class="formulario__label">Celular</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="formulario__input" name="celular" id="celular" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Este campo solo admite números</p>
+            </div>
+        </form>
+    </main>    
+
     
     <center><div id="guardarcambios_editar">
         <form action="" method="" onSubmit="">

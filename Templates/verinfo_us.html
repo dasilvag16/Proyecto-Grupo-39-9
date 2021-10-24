@@ -5,127 +5,150 @@
 </div>
 {% endblock %}
 {% block cuerpo %}
-<p>BIENVENIDO USUARIO X!!</p>    
-        <div>
-            <p>DATOS PERSONALES</p>
-        </div>
-        <div>
-            <div>
-            <label class="" for="">Nombre (s):</label>
+<p>BIENVENIDO NOMBRE Y APELLIDO</p>    
+<main>
+    <form action="" class="formulario" id="formulario">
+        <!-- Grupo: Nombre -->
+        <div class="formulario__grupo" id="grupo__nombre" required="">
+            <label for="nombre" class="formulario__label">Nombre(s)</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Nombre(s)">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
-            <input type="text" name="nombres" id="">
+            <p class="formulario__input-error">Este campo solo admite letras</p>
         </div>
-        <div>
-            <label class="" for="">Apellidos (s):</label>
-        </div>
-        <div>
-            <input type="text" name="apellidos" id="">
-        </div>
-        <div>
-            <label class="" for="">Telefono Fijo:</label>
-        </div>
-        <div>
-            <input type="tel" name="fijo" id="">
-        </div>
-        <div>
-            <label class="" for="">Correo Personal:</label>
-        </div>
-        <div>
-            <input type="text" name="correo" id="">
-        </div>
-        <div>
-            <label class="" for="">Celular:</label>
-        </div>
-        <div>
-            <input type="tel" name="celular" id="">
-        </div>
-        <div>
-            <div>
-            <label class="" for="">Dirección:</label>
-            </div>
-            <input type="text" name="direccion" id="">
-        </div>
-    </div>
-    <div>
-    <label class="" for="">Dependencia:</label>
-    </div>
-    <select name="dependencias" id="dep">
-        <option value="" selected disabled hidden>{{temporal}}</option>
-        <option value="gerencia">Gerencia</option>
-        <option value="recursos_humanos">Recursos Humanos</option>
-        <option value="atencion_cliente">Atención al Cliente</option>
-        <option value="contabilidad">Contabilidad</option>
-    </select>
-    </div>
-    <div>
-        <div>
-        <label class="" for="">Salario:</label>
-        </div>
-        <input type="text" name="salario" id="">
-    </div>
-    <div>
-        <div>
-        <label class="" for="">Fecha de ingreso:</label>
-        </div>
-        <input type="date" name="ingreso" id="d1" value=>
-    </div>
-    <div>
-        <div>
-        <label class="" for="">Usuario:</label>
-        </div>
-        <input type="text" name="usuario" id="" value={{temporal}}>
-    </div>
-    <div>
-        <div>
-        <label class="" for="">Fecha de terminación de contrato:</label>
-        </div>
-        <input type="date" name="terminacion" id="d2" value=>
-    </div>
-    <!--
-    <div>
-        <div>
-        <label class="" for="">Objetivos establecidos:</label>
-        </div>
-        <input type="text" name="establecidos" id="est"> 
-    </div>
-    -->
-    <div>
-        <div>
-            <label class="" for="">Tipo de contrato:</label>
-        </div>
-        <select name="contrato" id="con">
-            <option value="" selected disabled hidden>{{temporal}}</option>
-            <option value="fijo">Término fijo</option>
-            <option value="indefinido">Término indefinido</option>
-        </select>
-    </div>
-    <!--
-    <div>
-        <button type="button" id="editar_admib2">Objetivos cumplidos</button>
-    </div>
-    -->
-    <div>
-        <div>
-        <label class="" for="">Cargo:</label>
-        </div>
-        <input type="text" name="cargo" id="" value={{temporal}}>
-    </div>
-    <!--
-    <div>
-        <p>RESEÑA DE DESEMPEÑO</p>
-    </div>
-    <div>
-        <textarea id="res" name="reseña" rows="4" cols="50">{{temporal}}</textarea>
-    </div>
-    -->
 
+        <!-- Grupo: Apellido -->
+        <div class="formulario__grupo" id="grupo__apellido" required="">
+            <label for="apellido" class="formulario__label">Apellidos</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Apellidos">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Este campo solo admite letras</p>
+        </div>
+
+        <!-- Grupo: Numero de id -->
+        <div class="formulario__grupo" id="grupo__cedula"required="">
+            <label for="cedula" class="formulario__label">Documento</label>
+            <div class="formulario__grupo-input">
+                <input type="number" class="formulario__input" name="cedula" id="cedula" placeholder="XXXXXXXX">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Este campo solo admite números</p>
+        </div>
+        <!-- Grupo: Correo Electronico -->
+        <div class="formulario__grupo" id="grupo__correo"required="">
+            <label for="correo" class="formulario__label">Correo Electrónico</label>
+            <div class="formulario__grupo-input">
+                <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Correo@correo.com">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Escriba una dirección de correo válida</p>
+        </div>
+        <!-- Grupo: Teléfono -->
+        <div class="formulario__grupo" id="grupo__telefono" >
+            <label for="telefono" class="formulario__label">Teléfono</label>
+            <div class="formulario__grupo-input">
+                <input type="number" class="formulario__input" name="telefono" id="telefono" placeholder="XXXXXXX" >
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Este campo solo admite números</p>
+        </div>
+        <!-- Grupo: Dirección -->
+        <div class="formulario__grupo" id="grupo__direccion" >
+            <label for="direccion" class="formulario__label">Dirección</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="direccion" id="direccion" placeholder="Dirección #XX-XX">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Ingrese la dirección completa</p>
+        </div>
+
+        <!-- Grupo: Celular -->
+        <div class="formulario__grupo" id="grupo__celular">
+            <label for="celular" class="formulario__label">Celular</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="celular" id="celular" placeholder="XXXXXXXXX">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Este campo solo admite números</p>
+        </div>
+        
+        <!-- Grupo: Salario -->
+        <div class="formulario__grupo" id="grupo__salario"required="">
+            <label for="salario" class="formulario__label">Salario</label>
+            <div class="formulario__grupo-input">
+                <input type="number" class="formulario__input" name="salario" id="salario" placeholder="$XXXXXXXXX" >
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Este campo solo admite números</p>
+        </div>
+        <!-- Grupo: Dependencia -->
+        <div class="formulario__grupo" id="grupo__dependencia" required="" placeholder="Dependencia">
+            <label for="dependencia" class="formulario__label">Dependencia</label>
+        </div>
+        <!-- Grupo: Tipo de contrato -->
+        <div class="formulario__grupo" id="grupo__tipocontrato"required="" placeholder="Tipo de contrato">
+            <label for="tipocontrato" class="formulario__label">Tipo de contrato</label>
+            
+        </div>
+
+        <!-- Grupo: Usuario -->
+        <div class="formulario__grupo" id="grupo__usuario1" required="">
+            <label for="usuario1" class="formulario__label">Usuario</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="usuario1" id="usuario1" placeholder="usuario">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+        </div>
+
+        <!-- Grupo: Fecha de ingreso -->
+        <div class="formulario__grupo" id="grupo__fechaingreso" required="">
+            <label for="fechaingreso" class="formulario__label">Fecha de ingreso</label>
+            <div class="formulario__grupo-input">
+                <input type="date" class="formulario__input" name="fechaingreso" id="fechaingreso">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+        </div>
+
+        <!-- Grupo: Contraseña -->
+        <div class="formulario__grupo" id="grupo__password" required="">
+            <label for="password" class="formulario__label">Contraseña</label>
+            <div class="formulario__grupo-input">
+                <input type="password" class="formulario__input" name="password" id="password" placeholder="Contraseña">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+        </div>
+        <!-- Grupo: Fecha de terminacion de contrato -->
+        <div class="formulario__grupo" id="grupo__fechaterm"required="">
+            <label for="fechaterm" class="formulario__label">Fecha de terminación de contrato</label>
+            <div class="formulario__grupo-input">
+                <input type="date" class="formulario__input" name="fechaterm" id="fechaterm" >
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+        </div>
+        
+        <!-- Grupo: Cargo -->
+        <div class="formulario__grupo" id="grupo__cargo" required="">
+            <label for="nombre" class="formulario__label">Cargo</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="formulario__input" name="cargo" id="cargo" placeholder="Cargo" >
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">Este campo solo admite letras</p>
+        </div>
     </form>
+</main>
+<br>  
 <section>
     <div>
         <form action="/editar_us" method="POST" onSubmit="return enviar_editar_us()">
             <input type="submit" name="editar_usuario" value="EDITAR" id="edit"/>
         </form>
-    </div>
+    </div> <br> 
     <div>
         <form action="/ver_ret" method="POST" onSubmit="return enviar_ver_ret()">
             <input type="submit" name="ver_retro" value="VER RETROALIMENTACIÓN" id="vr"/>

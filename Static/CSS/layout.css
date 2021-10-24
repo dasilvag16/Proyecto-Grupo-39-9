@@ -252,10 +252,6 @@ a {
     display: flex;
 }
 
-#registrar_usuarios0 {
- 
-}
-
 #registrar_usuarios1 {
     margin-right: 300px;
 }
@@ -440,6 +436,25 @@ a {
     background-color: rgba(0, 0, 0, 0.055)
 }
 
+#vi {
+    width: 100%;
+	background: rgb(161, 205, 246);
+	border: 3px solid transparent;
+	border-radius: 15px;
+	height: 35px;
+	line-height: 45px;
+	padding: 0 20px 0 10px;
+}
+
+#un{
+    background-color: white;
+    border: 3px solid transparent;
+	border-radius: 15px;
+	height: 35px;
+	line-height: 45px;
+	padding: 0 20px 0 10px;
+}
+
 #editarusuarioboton {
     background-color: red;
     color: white
@@ -504,7 +519,8 @@ input {
     background-color:rgb(0, 0, 0);
     color: white;
     width:200px;
-    margin-right: 300px;
+    border radius: 15px;
+    position:center;
 }
 
 #datos_de_usuario {
@@ -512,7 +528,7 @@ input {
     background-color:rgb(0, 0, 0);
     color: white;
     width:200px;
-    margin-right: 300px;
+    position: center;
 }
 
 #guardarcambioseditar {
@@ -533,6 +549,7 @@ input {
 
 #datosusuario{
     width:500px;
+    position: center;
     
 }
 #datosusuario2{
@@ -546,4 +563,6 @@ input {
 
 #guardarcambios_editar{
     margin-right: 300px;
+    padding: 1em;
+    width: 100%;
 }
