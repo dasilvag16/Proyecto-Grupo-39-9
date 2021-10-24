@@ -73,7 +73,34 @@ def validar():
                     return render_template('dashboard.html', user=usuario, empleados=empleados, cargos=cargos, establecidos=establecidos, cumplidos=cumplidos)
              else:
                 # deberia de enviarme a reigstrar
-                return render_template('verinfo_us.html', user='Empleado')
+                cone = sql.connect("database/GestionEmpleados_DB.db")
+                cursor = cone.cursor()
+                #cursor.execute("SELECT idUsuarios FROM Usuarios WHERE Usuario = '{}'".format(usuario))
+                cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario))
+                registrosObtenidos = cursor.fetchone()
+                cursor.execute("select * from Empleados WHERE idEmpleados = {}".format(registrosObtenidos[0]))
+                registro = cursor.fetchone()
+                global nombre, apellido, cedula, correo, celular, fijo, direccion, salario, ingreso, terminacion, cargo, dependencia, contrato
+                nombre = registrosObtenidos[1]
+                apellido = 'Nazario'
+                cedula = registrosObtenidos[0]
+                correo = registrosObtenidos[3]
+                # nombre = registro[13]
+                # apellido = registro[12]
+                # cedula = registro[11]
+                # correo = registro[15]
+                celular = registro[1]
+                fijo = registro[2]
+                direccion = registro[3]
+                salario = registro[4]
+                ingreso = registro[5]
+                terminacion = registro[6]
+                cargo = registro[7]
+                dependencia = registro[9]
+                contrato = registro[10]
+                return render_template('verinfo_us.html', user='Empleado', cel=celular, fijo=fijo, direccion=direccion, salario=salario,
+                ingreso=ingreso, terminacion=terminacion, cargos=cargo, dependencia=dependencia, contrato=contrato,
+                nombre=nombre, apellido=apellido, cedula=cedula, correo=correo)
         else:
                     return render_template('inicio_sesion.html')
 
@@ -88,12 +115,24 @@ def definicion_listar():
 
 @app.route('/editar_us', methods=['POST'])
 def editar_us():
-    return render_template('editar_us.html', user='Empleado')
+    return render_template('editar_us.html', user='Empleado', cel=celular, fijo=fijo, direccion=direccion, salario=salario,
+                ingreso=ingreso, terminacion=terminacion, cargos=cargo, dependencia=dependencia, contrato=contrato,
+                nombre=nombre, apellido=apellido, cedula=cedula, correo=correo)
 
 
 @app.route('/ver_ret', methods=['POST'])
 def ver_reto():
-    return render_template('ver_ret.html', user='Empleado')
+    cone = sql.connect("database/GestionEmpleados_DB.db")
+    cursor = cone.cursor()
+    cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario))
+    registrosObtenidos = cursor.fetchone()
+    cursor.execute("select * from Retroalimentacion WHERE idRetroalimentacion = {}".format(registrosObtenidos[0]))
+    registro = cursor.fetchone()
+    desempeño = registro[1]
+    puntaje = registro[2]
+    nya = nombre+' '+apellido
+    return render_template('ver_ret.html', user='Empleado', desempeño=desempeño, puntaje=puntaje, nya=nya, 
+    cedula=cedula, dependencia=dependencia, ingreso=ingreso)
 
 
 @app.route('/listar_admi')
@@ -110,7 +149,7 @@ def verinfo_admi():
 
 @app.route('/registrar_usuarios', methods=['POST'])
 def registrar_usuarios():    
-        return render_template('registrar_usuarios.html') #user=usuario)
+        return render_template('registrar_usuarios.html', user=usuario)
 
 
 @app.route('/editar_admi', methods=['POST'])

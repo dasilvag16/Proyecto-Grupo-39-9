@@ -519,7 +519,7 @@ input {
     background-color:rgb(0, 0, 0);
     color: white;
     width:200px;
-    border radius: 15px;
+    border-radius: 15px;
     position:center;
 }
 
