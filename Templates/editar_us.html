@@ -7,11 +7,11 @@
 {% block cuerpo %}
     <!-- Aquí va el código html -->
     <center><div id="datospersonales">
-        <p style="border: ridge #000000 2px;"> DATOS PERSONALES:</p>
+        <p style="border: #000000 2px;"> DATOS PERSONALES</p>
     </div> </center>
     
     <main>
-        <form action="" class="formulario" id="formulario">
+        <form action="/editar_us/" method="POST" class="formulario" id="formulario">
             <!-- Grupo: Nombre -->
             <div class="formulario__grupo" id="grupo__nombre" required="">
                 <label for="nombre" class="formulario__label">Nombre(s)</label>
@@ -68,15 +68,15 @@
                 </div>
                 <p class="formulario__input-error">Este campo solo admite números</p>
             </div>
+            <center><div id="">
+                <!--<form action="" method="" onSubmit="">-->
+                    <button type="submit" name="editar_us" value="GUARDAR CAMBIOS" id="guardarcambioseditar_boton">GUARDAR CAMBIOS</button>
+                    <!--<input type="submit" name="editar_us" value="GUARDAR CAMBIOS" id="guardarcambioseditar"/>-->
+                <!--</form>-->
+            </div> </center> <br> <br>
         </form>
     </main>    
 
-    
-    <center><div id="guardarcambios_editar">
-        <form action="" method="" onSubmit="">
-            <input type="submit" name="editar_us" value="GUARDAR CAMBIOS" id="guardarcambioseditar"/>
-        </form>
-    </div> </center> <br> <br>
     <center><div id="datos_de_usuario">
         <p style="border: ridge #000000 2px;"> DATOS DE USUARIO </p>
     </div> </center>
