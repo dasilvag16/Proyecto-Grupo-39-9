@@ -13,11 +13,23 @@
         </form>
     </div>
     <br><br><br>
-
+    <!--<form action="/listar_admi" method="POST">
     <center><div id="buscar_usuario">
     <label>Buscar cédula <input type="text" id="BuscarUsuario" name="BuscarUsuario"></label>
     </div></center>
-<br><br>
+    <input type="submit" name="buscar_super" value="BUSCAR" id="buscar_super"/>
+    </form>-->
+    <div>
+        <form action="/editar_admi" method="GET">
+        <input type="submit" name="ver_informacion" value="EDITAR INFORMACIÓN" id=""/>
+        </form>
+    </div>
+    <div>
+        <form action="/eliminar" method="GET">
+        <input type="submit" name="ver_informacion" value="ELIMINAR" id=""/>
+        </form>
+    </div>
+<!--<br><br>
    <center> <div id="ListarUsuarios">
         <table class="Listar">
             <tr>
@@ -28,11 +40,11 @@
               </tr> 
 
             <tr>
-             <td>NOMBRE Y APELLIDOS DEL USUARIO 1</td>
-                <td> IDENTIFICACIÓN 1</td>
+             <td>{{nya}}</td>
+                <td>{{cedula}}</td>
                 <td>
-                    <form action="/verinfo_admi" method="POST" onSubmit="return enviar_verinfo()">
-                    <input type="submit" name="ver_informacion" value="VER INFORMACIÓN 1" id="vi"/>
+                    <form action="/editar_admi" method="POST" onSubmit="return enviar_verinfo()">
+                    <input type="submit" name="ver_informacion" value="EDITAR INFORMACIÓN" id="vi"/>
                     </form>
                 </td>
             </tr>
@@ -115,13 +127,13 @@
                     <input type="submit" name="ver_informacion" value="VER INFORMACIÓN 10" id="vi"/>
                     </form>
                 </td>
-            </tr> -->
+            </tr> 
         </table>    
     </div> </center>
     <br> <br>
 
 
 <div id=totalregistros>    
-<strong> <p>Total registros: XX</p> </strong>
+<strong> <p>Total registros: XX</p> </strong>-->
 </section>
 {% endblock %}

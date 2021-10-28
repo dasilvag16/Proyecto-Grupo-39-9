@@ -425,6 +425,15 @@ a {
 }
 
 /* listar_super.html */
+
+#cambiar_listarsuper {
+    display: none;
+}
+
+#buscar_listarsuper {
+    display: none;
+}
+
 #ListarUsuarios table th {
     color: black;
     background-color: rgba(0, 0, 0, 0.055);

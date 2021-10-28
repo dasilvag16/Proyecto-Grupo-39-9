@@ -9,7 +9,7 @@ from flask import Flask, render_template, request,jsonify,redirect, url_for, fla
 # Importamos SQLite
 import sqlite3 as sql
 import db
-
+from sqlite3 import Error
 
 
 # Definimos la aplicación
@@ -160,16 +160,66 @@ def ver_reto():
     cedula=cedula, dependencia=dependencia, ingreso=ingreso)
 
 
-@app.route('/listar_admi')
+@app.route('/listar_admi', methods=['POST', 'GET'])
 def listar_admi():
-    return render_template('listar_admi.html', user=usuario)
+    if request.method == 'GET':
+        #print(request.url)
+        return render_template('listar_admi.html', user=usuario)
+    else:
+        return buscar_admi()
 
+def buscar_admi():
+    try:
+        busqueda = request.form['BuscarUsuario']
+        con = db.get_db()
+        cur = con.cursor()
+        strsql = "SELECT * FROM Empleados WHERE idEmpleados = {}".format(busqueda)
+        strsql1 = "SELECT * FROM Usuarios WHERE idUsuarios = {}".format(busqueda)
+        cur.execute(strsql)
+        datos = cur.fetchone()
+        cur.execute(strsql1)
+        datos1 = cur.fetchone()
+        nya = datos1[1]+' '+datos[11]
+        cedula = datos1[0]
+        con.close()
+        return render_template('listar_admi.html', user=usuario, nya=nya, cedula=cedula)
+    except TypeError:
+        return render_template('listar_admi.html', user=usuario)
+    except Error:
+        return render_template('listar_admi.html', user=usuario)
 
-@app.route('/verinfo_admi', methods=['POST'])
-def verinfo_admi():
-    global temporal
-    temporal = 'N/A'
-    return render_template('verinfo_admi.html', user=usuario, temporal=temporal)
+# @app.route('/verinfo_admi', methods=['POST'])
+# def verinfo_admi():
+#     con = db.get_db()
+#     cur = con.cursor()
+#     strsql = "SELECT * FROM Empleados WHERE idEmpleados = {}".format(1)
+#     strsql1 = "SELECT * FROM Usuarios WHERE idUsuarios = {}".format(1)
+#     strsql2 = "SELECT * FROM Retroalimentacion WHERE idRetroalimentacion = {}".format(1)
+#     cur.execute(strsql)
+#     datos = cur.fetchone()
+#     cur.execute(strsql1)
+#     datos1 = cur.fetchone()
+#     cur.execute(strsql2)
+#     datos2 = cur.fetchone()
+#     cedula = datos[0]
+#     celular = datos[1]
+#     fijo = datos[2]
+#     direccion = datos[3]
+#     salario = datos[4]
+#     ingreso = datos[5]
+#     term = datos[6]
+#     cargo = datos[7]
+#     dependencias = datos[9]
+#     contrato = datos[10]
+#     apellido = datos[11]
+#     nombre = datos1[1]
+#     usuario1 = datos1[2]
+#     correo = datos1[3]
+#     contraseña = datos1[4]
+#     retroalimentacion = datos2[1]
+#     return render_template('verinfo_admi.html', user=usuario, cedula=cedula, celular=celular, fijo=fijo, direccion=direccion,
+#         salario=salario, ingreso=ingreso, term=term, cargo=cargo, dependencias=dependencias, contrato=contrato,
+#         apellido=apellido, nombre=nombre, usuario1=usuario1, correo=correo, contraseña=contraseña, retroalimentacion=retroalimentacion)
 
 
 @app.route('/registrar_usuarios', methods=['POST', 'GET'])
@@ -214,24 +264,173 @@ def add_user():
     return render_template('registrar_usuarios.html', user=usuario)
 
 
-@app.route('/editar_admi', methods=['POST'])
+@app.route('/editar_admi', methods=['POST', 'GET'])
 def editar_admi():
-    return render_template('editar_admi.html', user=usuario, temporal=temporal)
+    if request.method == 'GET':
+        return render_template('editar_admi.html', user=usuario)
+    else:
+        return fill()
+    
+def fill():
+    try:
+        global busqueda1
+        busqueda1 = request.form['BuscarUsuario']
+        con = db.get_db()
+        cur = con.cursor()
+        strsql = "SELECT * FROM Empleados WHERE idEmpleados = {}".format(busqueda1)
+        strsql1 = "SELECT * FROM Usuarios WHERE idUsuarios = {}".format(busqueda1)
+        strsql2 = "SELECT * FROM Retroalimentacion WHERE idRetroalimentacion = {}".format(busqueda1)
+        cur.execute(strsql)
+        datos = cur.fetchone()
+        cur.execute(strsql1)
+        datos1 = cur.fetchone()
+        cur.execute(strsql2)
+        datos2 = cur.fetchone()
+        cedula = datos[0]
+        celular = datos[1]
+        fijo = datos[2]
+        direccion = datos[3]
+        salario = datos[4]
+        ingreso = datos[5]
+        term = datos[6]
+        cargo = datos[7]
+        dependencias = datos[9]
+        contrato = datos[10]
+        apellido = datos[11]
+        nombre = datos1[1]
+        usuario1 = datos1[2]
+        correo = datos1[3]
+        contraseña = datos1[4]
+        reseña = datos2[1]
+        puntaje = datos2[2]
+        return render_template('editar_admi.html', user=usuario, cedula=cedula, celular=celular, fijo=fijo, direccion=direccion,
+            salario=salario, ingreso=ingreso, term=term, cargo=cargo, dependencias=dependencias, contrato=contrato,
+            apellido=apellido, nombre=nombre, usuario1=usuario1, correo=correo, contraseña=contraseña, reseña=reseña, puntaje=puntaje)
+    except TypeError:
+        return render_template('editar_admi.html', user=usuario)
+    except Error:
+        return render_template('editar_admi.html', user=usuario)
 
+@app.route('/editar', methods=['POST'])
+def editar():
+    nombre = request.form['nombres']
+    identificacion = request.form['identificacion']
+    fijo = request.form['fijo']
+    celular = request.form['celular']
+    dependencias = request.form.get('dependencias')
+    ingreso = request.form['ingreso']
+    terminacion = request.form['terminacion']
+    contrato = request.form.get('contrato')
+    cargo = request.form['cargo']
+    apellidos = request.form['apellidos']
+    correo = request.form['correo']
+    direccion = request.form['direccion']
+    salario = request.form['salario']
+    usuario2 = request.form['usuario2']
+    contraseña = request.form['contraseña']
+    reseña = request.form['reseña']
+    puntaje = request.form['puntaje']
+    con = db.get_db()
+    cur = con.cursor()
+    cur.execute("SELECT Rol FROM Empleados WHERE idEmpleados = '{}'".format(busqueda1))
+    rolex = cur.fetchone()
+    rol = rolex[0]
+    strsql = "UPDATE Empleados SET idEmpleados='"+str(identificacion)+"', Celular='"+str(celular)+"', Fijo='"+str(fijo)+"', Direccion='"+direccion+"', Salario='"+salario+"', Fecha_ingreso='"+ingreso+"', Fecha_terminacion='"+terminacion+"', Cargo='"+cargo+"', Rol='"+str(rol)+"', Dependencia='"+dependencias+"', Tipo_contrato='"+contrato+"', Apellidos='"+apellidos+"' WHERE idEmpleados = '"+str(busqueda1)+"'"
+    strsql1 = "UPDATE Usuarios SET idUsuarios='"+str(identificacion)+"', Nombres='"+nombre+"', Usuario='"+usuario2+"', Correo='"+correo+"', Contraseña='"+contraseña+"' WHERE idUsuarios = '"+str(busqueda1)+"'"
+    strsql2 = "UPDATE Retroalimentacion SET idRetroalimentacion='"+str(identificacion)+"', Reseña='"+reseña+"', Puntaje='"+str(puntaje)+"' WHERE idRetroalimentacion='"+str(busqueda1)+"'"
+    cur.execute(strsql)
+    cur.execute(strsql1)
+    cur.execute(strsql2)
+    con.commit()
+    con.close()
+    return redirect('/editar_admi')
 
-@app.route('/eliminar', methods=['POST'])
+@app.route('/eliminar', methods=['POST', 'GET'])
 def eliminar():
-    return render_template('eliminar.html', user=usuario)
+    if request.method == 'GET':
+        return render_template('eliminar.html', user=usuario)
+    else:
+        return buscar_eliminar()
+
+def buscar_eliminar():
+    try:
+        global busqueda2
+        busqueda2 = request.form['BuscarUsuario']
+        con = db.get_db()
+        cur = con.cursor()
+        strsql = "SELECT * FROM Empleados WHERE idEmpleados = {}".format(busqueda2)
+        strsql1 = "SELECT * FROM Usuarios WHERE idUsuarios = {}".format(busqueda2)
+        cur.execute(strsql)
+        datos = cur.fetchone()
+        cur.execute(strsql1)
+        datos1 = cur.fetchone()
+        nya = datos1[1]+' '+datos[11]
+        cedula = datos1[0]
+        con.close()
+        return render_template('eliminar.html', user=usuario, nya=nya, cedula=cedula)
+    except TypeError:
+        return render_template('eliminar.html', user=usuario)
+    except Error:
+        return render_template('eliminar.html', user=usuario)
+
+@app.route('/eliminar_user', methods=['POST'])
+def eliminar_user():
+    con = db.get_db()
+    cur = con.cursor()
+    strsql = "delete from Empleados where idEmpleados = '"+str(busqueda2)+"';"
+    strsql1 = "delete from Usuarios where idUsuarios = '"+str(busqueda2)+"';"
+    strsql2 = "delete from Retroalimentacion where idRetroalimentacion = '"+str(busqueda2)+"';"
+    cur.execute(strsql)
+    cur.execute(strsql1)
+    cur.execute(strsql2)
+    con.commit()
+    con.close()
+    return redirect('/eliminar')
+# @app.route('/generar_ret', methods=['POST'])
+# def generar_ret():
+#     return render_template('generar_ret.html', user=usuario)
 
 
-@app.route('/generar_ret', methods=['POST'])
-def generar_ret():
-    return render_template('generar_ret.html', user=usuario)
-
-
-@app.route('/listar_super')
+@app.route('/listar_super', methods=['POST', 'GET'])
 def listar_super():
-    return render_template('listar_super.html', user=usuario)
+    if request.method == 'GET':
+        return render_template('listar_super.html', user=usuario)
+    else:
+        return buscar_admi1()
+
+def buscar_admi1():
+    try:
+        busqueda = request.form['BuscarUsuario']
+        con = db.get_db()
+        cur = con.cursor()
+        strsql = "SELECT * FROM Empleados WHERE idEmpleados = {}".format(busqueda)
+        strsql1 = "SELECT * FROM Usuarios WHERE idUsuarios = {}".format(busqueda)
+        cur.execute(strsql)
+        datos = cur.fetchone()
+        cur.execute(strsql1)
+        datos1 = cur.fetchone()
+        nya = datos1[1]+' '+datos[11]
+        cedula = datos1[0]
+        rol1 = request.form.get('Roles')
+        if rol1 == 'Administrador':
+            roles1 = True
+            cur.execute("UPDATE Empleados SET Rol='"+str(roles1)+"' WHERE idEmpleados = "+str(cedula)+"")
+            con.commit()
+            con.close()
+            return render_template('listar_super.html', user=usuario, nya=nya, cedula=cedula)
+        elif rol1 == 'gerencia':
+            roles1 = False
+            cur.execute("UPDATE Empleados SET Rol='"+str(roles1)+"' WHERE idEmpleados = "+str(cedula)+"")
+            con.commit()
+            con.close()
+            return render_template('listar_super.html', user=usuario, nya=nya, cedula=cedula)
+        else:
+            con.close()
+            return render_template('listar_super.html', user=usuario, nya=nya, cedula=cedula)
+    except TypeError:
+        return render_template('listar_super.html', user=usuario)
+    except Error:
+        return render_template('listar_super.html', user=usuario)
 
 #Ruta para la creación de sesiones
 @app.before_request
