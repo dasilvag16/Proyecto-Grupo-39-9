@@ -10,7 +10,7 @@
     </div>
     <div>
       <form action="/definicion_listar" method="POST">
-        <input type="submit" name="listar" value="LISTAR EMPLEADOS" id="le" />
+        <input type="submit" name="listar" value="GESTIONAR EMPLEADOS" id="le" />
       </form>
     </div>
   </div>
@@ -18,7 +18,7 @@
     <div id="estadisticas">
       <p>ESTADÍSTICAS</p>
     </div>
-    <div>
+    <!--<div>
       <select name="dependencias" id="dep">
         <option value="" selected disabled hidden>DEPENDENCIA</option>
         <option value="gerencia">Gerencia</option>
@@ -26,29 +26,29 @@
         <option value="atencion_cliente">Atención al Cliente</option>
         <option value="contabilidad">Contabilidad</option>
       </select>
-    </div>
+    </div>-->
     <div>
       <div class="divisiones">
         <div class="etiquetas">
-          <p>Cantidad de Empleados</p>
+          <p>Administradores</p>
         </div>
         <div class="variables">{{empleados}}</div>
       </div>
       <div class="divisiones">
         <div class="etiquetas">
-          <p>Cargos</p>
+          <p>Empleados</p>
         </div>
         <div class="variables">{{cargos}}</div>
       </div>
       <div class="divisiones">
         <div class="etiquetas">
-          <p>Cantidad de Objetivos Establecidos</p>
+          <p>Contratos término fijo</p>
         </div>
         <div class="variables">{{establecidos}}</div>
       </div>
       <div class="divisiones">
         <div class="etiquetas">
-          <p>Cantidad de Objetivos Cumplidos</p>
+          <p>Contratos término indefinido</p>
         </div>
         <div class="variables">{{cumplidos}}</div>
       </div>

@@ -11,6 +11,7 @@
     action="{{url_for('registrar_usuarios')}}"
     class="formulario"
     id="formulario"
+    method="POST"
   >
     <!-- Grupo: Nombre -->
     <div class="formulario__grupo" id="grupo__nombre" required="">
@@ -135,10 +136,10 @@
       <label for="dependencia" class="formulario__label">Dependencia</label>
       <select name="dependencias" id="dep" required="">
         <option value="" selected disabled hidden>Seleccione</option>
-        <option value="gerencia">Gerencia</option>
-        <option value="recursos_humanos">Recursos Humanos</option>
-        <option value="atencion_cliente">Atención al Cliente</option>
-        <option value="contabilidad">Contabilidad</option>
+        <option value="Gerencia">Gerencia</option>
+        <option value="Recursos Humanos">Recursos Humanos</option>
+        <option value="Atención al Cliente">Atención al Cliente</option>
+        <option value="Contabilidad">Contabilidad</option>
       </select>
     </div>
     <!-- Grupo: Tipo de contrato -->
@@ -148,8 +149,8 @@
       >
       <select name="contrato" id="con" required="">
         <option value="" selected disabled hidden>Seleccione</option>
-        <option value="fijo">Término fijo</option>
-        <option value="indefinido">Término indefinido</option>
+        <option value="Fijo">Término fijo</option>
+        <option value="Indefinido">Término indefinido</option>
       </select>
     </div>
 
@@ -160,8 +161,8 @@
         <input
           type="text"
           class="formulario__input"
-          name="usuario"
-          id="usuario"
+          name="usuario_r"
+          id="usuario_r"
         />
         <i class="formulario__validacion-estado fas fa-times-circle"></i>
       </div>
@@ -194,8 +195,8 @@
         <input
           type="password"
           class="formulario__input"
-          name="password"
-          id="password"
+          name="password_r"
+          id="password_r"
         />
         <i class="formulario__validacion-estado fas fa-times-circle"></i>
       </div>
