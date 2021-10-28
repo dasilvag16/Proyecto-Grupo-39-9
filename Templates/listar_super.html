@@ -5,6 +5,15 @@
 </div>
 {% endblock %}
 {% block cuerpo %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 <section>
     <br>
     <div>
@@ -60,6 +69,11 @@
                     </form>
                 </td>
             </tr>
+            {% if cedula: %}
+                <form method="GET" action="/listar_super">
+                <input type="submit" name="refresh" value="REFRESCAR" id="refresh"/>
+                </form>
+            {% endif %}
             <!-- <tr>
                 <td>NOMBRE Y APELLIDOS DEL USUARIO 2</td>
                 <td> IDENTIFICACIÓN 2</td>
