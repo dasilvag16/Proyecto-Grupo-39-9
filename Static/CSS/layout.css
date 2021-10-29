@@ -503,18 +503,18 @@ input {
 }
 
 #datosretro{
-    max-width:1000px
+    max-width:700px;
 }
 
 #puntajeretro{
-    width:200px;
+    width:150px;
+    background-color:red;
+    color:white;
 }
 
 #puntajeretro p{
     text-align:center;
-    font-size:2em;
-    background-color:red;
-    color: white;
+ 
 }
 
 #datos1{
@@ -525,7 +525,7 @@ input {
 /*editar_us.html*/
 
 #guardarcambioseditar_boton{
-    width: 90px;
+    width: 100px;
     height: 45px;
     background-color: red;
     color: white;
@@ -533,20 +533,22 @@ input {
 }
 
 #datospersonales {
-    font-size:1em;
+    font-size:1.2em;
     background-color:rgb(0, 0, 0);
     color: white;
-    width:200px;
+    width:250px;
     border-radius: 15px;
     position:center;
 }
 
 #datos_de_usuario {
-    font-size:1em;
+    font-size:1.2em;
     background-color:rgb(0, 0, 0);
     color: white;
-    width:200px;
-    position: center;
+    width:250px;
+    border-radius: 15px;
+    position:center;
+    padding: 0px 20px 0px 20px;
 }
 
 #guardarcambioseditar {
@@ -557,6 +559,7 @@ input {
 #editar_usuario2{
     display: flex;
 }
+
 
 #datos1 p{
     color:rgb(0, 0, 0);
@@ -583,4 +586,41 @@ input {
     margin-right: 300px;
     padding: 1em;
     width: 100%;
+}
+
+#edit {
+    background-color:red;
+    color:white;
+	border-radius: 15px;
+	height: 30px;
+	line-height: 5px;
+	padding: 0 20px 0 20px;
+	transition: .3s ease all;
+}
+
+#vr{
+    background-color:red;
+    color:white;
+	border-radius: 15px;
+	height: 30px;
+	line-height: 5px;
+	padding: 0 20px 0 20px;
+	transition: .3s ease all;
+}
+.cuadro{
+    padding-left: 70px;
+}
+
+#cuadro2{
+    padding-left: 200px;
+}
+#atrás_verinfousuario {
+    margin-left:100px;
+    background-color:black;
+    color:white;
+	border-radius: 15px;
+	height: 30px;
+	line-height: 5px;
+	padding: 0 20px 0 20px;
+	transition: .3s ease all;
 }

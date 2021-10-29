@@ -6,18 +6,23 @@
 {% endblock %}
 {% block cuerpo %}
  <!-- Aquí va el código html -->
+ <br>
+ <form action="/login" method="GET">
+    <input type="submit" name="" value="ATRÁS" id="atrás_verinfousuario"/>
+</form>
  <br> <br>
 <center><div id="imagusuario"> 
     <img src="data:image/png;base64,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" width="15%"> 
     <p> <strong>Nombre y Apellido:</strong> {{nya}} <br><strong> Identificación:</strong> {{cedula}} <br><strong> Dependencia:</strong> {{dependencia}} <br> <strong>Fecha de ingreso:</strong> {{ingreso}} </p>
 </div></center>
 
-<div id="datos1"> 
-    <div id=datosretro>
-        <p style="border: ridge #ffffff 2px;"> <br> DESEMPEÑO: <br> <br> {{desempeño}} <br> </p>
-    </div> 
-    <div id=puntajeretro>
-        <p style="border: ridge #ffffff 2px;"> PUNTAJE: <br> {{puntaje}} </p>
-    </div>
-</div>
+    <center>
+        <div id=datosretro>
+            <p style="border: ridge #ffffff 3px;"> <br> DESEMPEÑO: <br> <br> {{desempeño}} <br> </p>
+        </div> 
+        <div id=puntajeretro>
+            <p style="border: ridge #ffffff 3px;"> PUNTAJE: <br> {{puntaje}} </p>
+        </div>
+    </center>
+
 {% endblock %}
