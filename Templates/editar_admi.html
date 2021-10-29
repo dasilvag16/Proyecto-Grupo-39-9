@@ -11,7 +11,12 @@
             <input type="submit" name="generar_retro" value="GENERAR RETROALIMENTACIÓN" id="editar_admigr"/>
         </form>
     </div>-->
+<br> <br><br>
+<form action="/listar_super" method="GET">
+    <input type="submit" name="" value="ATRÁS" id="atras_listarusuario"/>
+</form>
 
+    <br>
     <form action="/editar_admi" method="POST">
     <div>
         <center><div id="buscar_usuario">
@@ -20,7 +25,7 @@
         </center>
     </div>
     </form>
-
+<br>
     <form action="/editar" method="POST">
         {% if cedula: %}
             <div id="editar_admi">
@@ -148,9 +153,10 @@
                     </div>
                 </div>
             </div>
-            <div  id="editar_admib">
-                <input type="submit" value="EDITAR" id="editar_admiedit"/>
-            </div>
+            <br>
+           <center> <div  id="editar_admib">
+                <input type="submit" value="GUARDAR CAMBIOS" id="editar_admiedit"/>
+            </div></center>
         {% endif %}
     </form>
 </section>

@@ -304,14 +304,22 @@ a {
     font: engraverse-bold;
     font-size: 25px;
     width: 500px;
-    height: 40px;
-    padding-top: 13px;
-    border-radius: 10px;
+    height: 50px;
+    padding-top: 10px;
+    border-radius: 20px;
     text-align: center;
-    position: relative;
-    left: 350px;
 }
 
+#atras_listarusuario {
+    margin-left:100px;
+    background-color:black;
+    color:white;
+	border-radius: 15px;
+	height: 30px;
+	line-height: 5px;
+	padding: 0 20px 0 20px;
+	transition: .3s ease all;
+}
 #reset input {
     border: 0px;
     border-radius: 20px;
@@ -345,11 +353,19 @@ a {
 
 #editar_admi1 {
     margin-top: 0px;
-    margin-right: 300px;
+    margin-left: 250px;
+}
+#editar_admi1 input {
+    border-radius: 15px;
+    height:30px;
 }
 
 #editar_admi2 {
     margin-left: 300px;
+}
+#editar_admi2 input {
+    border-radius: 15px;
+    height:30px
 }
 
 #editar_admib {
@@ -402,13 +418,13 @@ a {
 }
 
 #editar_admiedit {
-    width: 70px;
+    width: 200px;
     border: 0px;
     height: 30px;
     background-color: black;
     color: white;
-    border-radius: 5px;
-    margin-left: 550px;
+    border-radius: 15px;
+    
 }
 
 #editar_admigr {
@@ -460,8 +476,19 @@ a {
     border: 3px solid transparent;
 	border-radius: 15px;
 	height: 35px;
-	line-height: 45px;
-	padding: 0 20px 0 10px;
+	padding: 0 20px 0 20px;
+    margin-left: 20px;
+
+}
+#un1{
+    background-color: red;
+    color:white;
+    border: 3px solid transparent;
+	border-radius: 15px;
+	height: 35px;
+	padding: 0 20px 0 20px;
+    margin-left: 20px;
+
 }
 
 #editarusuarioboton {
@@ -624,3 +651,4 @@ input {
 	padding: 0 20px 0 20px;
 	transition: .3s ease all;
 }
+
