@@ -3,9 +3,14 @@
   <p>{{user}}</p>
 </div>
 {% endblock %} {% block cuerpo %}
-<div id="registrar_usuarios0">
+<br><br>
+    <form action="/listar_super" method="GET">
+        <input type="submit" name="" value="ATRÁS" id="atras_listarusuario"/>
+    </form>
+
+<center><div id="registrar_usuarios0">
   <p>REGISTRAR EMPLEADO NUEVO</p>
-</div>
+</div></center>
 <main>
   <form
     action="{{url_for('registrar_usuarios')}}"
@@ -238,10 +243,9 @@
     </div>
   </form>
 </main>
-<script src="Scripts/formulario.js"></script>
-<script
-  src="https://kit.fontawesome.com/2c36e9b7b1.js"
-  crossorigin="anonymous"
-></script>
+{% endblock %}
 
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/formulario.js') }}"></script>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 {% endblock %}

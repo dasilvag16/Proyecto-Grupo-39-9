@@ -105,7 +105,7 @@ a {
 }
 
 #le {
-    width: 232px;
+    width: 300px;
     height: 40px;
     background-color: black;
     color: white;
@@ -116,8 +116,8 @@ a {
 #estadisticas {
     width: 232px;
     height: 40px;
-    background-color: white;
-    color: black;
+    background-color: rgb(29, 124, 179);
+    color: white;
     font: engraverse-bold;
     font-size: 25px;
     text-align: center;
@@ -130,13 +130,13 @@ a {
 }
 
 #dashboard1 {
-    margin-left: 30px;
-    margin-right: 300px;
+    margin-left: 200px;
 }
 
 #dashboard2 {
     position: absolute;
-    right: 100px;
+    right: 200px;
+
 }
 
 #dashboard2 select {
@@ -167,8 +167,9 @@ a {
 
 .variables {
     height: 54px;
-    font-size: 50px;
-    text-align: right;
+    font-size: 40px;
+    text-align: center;
+    
 }
 
 /* verinfo_admi.html */
@@ -304,14 +305,22 @@ a {
     font: engraverse-bold;
     font-size: 25px;
     width: 500px;
-    height: 40px;
-    padding-top: 13px;
-    border-radius: 10px;
+    height: 50px;
+    padding-top: 10px;
+    border-radius: 20px;
     text-align: center;
-    position: relative;
-    left: 350px;
 }
 
+#atras_listarusuario {
+    margin-left:100px;
+    background-color:black;
+    color:white;
+	border-radius: 15px;
+	height: 30px;
+	line-height: 5px;
+	padding: 0 20px 0 20px;
+	transition: .3s ease all;
+}
 #reset input {
     border: 0px;
     border-radius: 20px;
@@ -345,11 +354,19 @@ a {
 
 #editar_admi1 {
     margin-top: 0px;
-    margin-right: 300px;
+    margin-left: 250px;
+}
+#editar_admi1 input {
+    border-radius: 15px;
+    height:30px;
 }
 
 #editar_admi2 {
     margin-left: 300px;
+}
+#editar_admi2 input {
+    border-radius: 15px;
+    height:30px
 }
 
 #editar_admib {
@@ -402,13 +419,13 @@ a {
 }
 
 #editar_admiedit {
-    width: 70px;
+    width: 200px;
     border: 0px;
     height: 30px;
     background-color: black;
     color: white;
-    border-radius: 5px;
-    margin-left: 550px;
+    border-radius: 15px;
+    
 }
 
 #editar_admigr {
@@ -460,8 +477,19 @@ a {
     border: 3px solid transparent;
 	border-radius: 15px;
 	height: 35px;
-	line-height: 45px;
-	padding: 0 20px 0 10px;
+	padding: 0 20px 0 20px;
+    margin-left: 20px;
+
+}
+#un1{
+    background-color: red;
+    color:white;
+    border: 3px solid transparent;
+	border-radius: 15px;
+	height: 35px;
+	padding: 0 20px 0 20px;
+    margin-left: 20px;
+
 }
 
 #editarusuarioboton {
@@ -503,18 +531,18 @@ input {
 }
 
 #datosretro{
-    max-width:1000px
+    max-width:700px;
 }
 
 #puntajeretro{
-    width:200px;
+    width:150px;
+    background-color:red;
+    color:white;
 }
 
 #puntajeretro p{
     text-align:center;
-    font-size:2em;
-    background-color:red;
-    color: white;
+ 
 }
 
 #datos1{
@@ -525,7 +553,7 @@ input {
 /*editar_us.html*/
 
 #guardarcambioseditar_boton{
-    width: 90px;
+    width: 100px;
     height: 45px;
     background-color: red;
     color: white;
@@ -533,20 +561,22 @@ input {
 }
 
 #datospersonales {
-    font-size:1em;
+    font-size:1.2em;
     background-color:rgb(0, 0, 0);
     color: white;
-    width:200px;
+    width:250px;
     border-radius: 15px;
     position:center;
 }
 
 #datos_de_usuario {
-    font-size:1em;
+    font-size:1.2em;
     background-color:rgb(0, 0, 0);
     color: white;
-    width:200px;
-    position: center;
+    width:250px;
+    border-radius: 15px;
+    position:center;
+    padding: 0px 20px 0px 20px;
 }
 
 #guardarcambioseditar {
@@ -557,6 +587,7 @@ input {
 #editar_usuario2{
     display: flex;
 }
+
 
 #datos1 p{
     color:rgb(0, 0, 0);
@@ -584,3 +615,41 @@ input {
     padding: 1em;
     width: 100%;
 }
+
+#edit {
+    background-color:red;
+    color:white;
+	border-radius: 15px;
+	height: 30px;
+	line-height: 5px;
+	padding: 0 20px 0 20px;
+	transition: .3s ease all;
+}
+
+#vr{
+    background-color:red;
+    color:white;
+	border-radius: 15px;
+	height: 30px;
+	line-height: 5px;
+	padding: 0 20px 0 20px;
+	transition: .3s ease all;
+}
+.cuadro{
+    padding-left: 70px;
+}
+
+#cuadro2{
+    padding-left: 200px;
+}
+#atrás_verinfousuario {
+    margin-left:100px;
+    background-color:black;
+    color:white;
+	border-radius: 15px;
+	height: 30px;
+	line-height: 5px;
+	padding: 0 20px 0 20px;
+	transition: .3s ease all;
+}
+
