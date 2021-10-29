@@ -9,6 +9,7 @@
       <img src={{ url_for('static', filename='Assets/staff.jfif') }} alt="">
     </div>
     <div>
+      <br>
       <form action="/definicion_listar" method="POST">
         <input type="submit" name="listar" value="GESTIONAR EMPLEADOS" id="le" />
       </form>
@@ -18,37 +19,33 @@
     <div id="estadisticas">
       <p>ESTADÍSTICAS</p>
     </div>
-    <!--<div>
-      <select name="dependencias" id="dep">
-        <option value="" selected disabled hidden>DEPENDENCIA</option>
-        <option value="gerencia">Gerencia</option>
-        <option value="recursos_humanos">Recursos Humanos</option>
-        <option value="atencion_cliente">Atención al Cliente</option>
-        <option value="contabilidad">Contabilidad</option>
-      </select>
-    </div>-->
+    <br>
     <div>
       <div class="divisiones">
         <div class="etiquetas">
-          <p>Administradores</p>
+          <center> <p>Administradores</p></center>
         </div>
+  
         <div class="variables">{{empleados}}</div>
       </div>
+      <br>
       <div class="divisiones">
         <div class="etiquetas">
-          <p>Empleados</p>
+         <center> <p>Empleados</p> </center>
         </div>
         <div class="variables">{{cargos}}</div>
       </div>
+      <br>
       <div class="divisiones">
         <div class="etiquetas">
-          <p>Contratos término fijo</p>
+          <center> <p>Contratos término fijo</p></center>
         </div>
         <div class="variables">{{establecidos}}</div>
       </div>
+      <br>
       <div class="divisiones">
         <div class="etiquetas">
-          <p>Contratos término indefinido</p>
+          <center> <p>Contratos término indefinido</p></center>
         </div>
         <div class="variables">{{cumplidos}}</div>
       </div>
