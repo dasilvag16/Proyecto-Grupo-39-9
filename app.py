@@ -55,12 +55,85 @@ def validateUserPass(usuario,contraseña):
 #funcion de validacion
 def validar():
     #verifica que sea POST
-    if request.method == 'POST':
-        global usuario
+    try:
+        if request.method == 'POST':
+            global usuario
 
-        #obteniendo datos
-        usuario=request.form['usuario']
-        password=request.form['contraseña']
+            #obteniendo datos
+            usuario=request.form['usuario']
+            password=request.form['contraseña']
+            cone = sql.connect("database/GestionEmpleados_DB.db")
+            cursor = cone.cursor()
+            cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario))
+            registrosObtenidos = cursor.fetchone()
+            cursor.execute("select * from Empleados WHERE idEmpleados = {}".format(registrosObtenidos[0]))
+            registro = cursor.fetchone()
+            rol = registro[8]
+
+            #llamando funcion de conexion base de datos con parametros de variables creadas
+            if validateUserPass(usuario,password):
+                #Se crea el vector para la sesión
+                session['usuario'] = usuario
+                cone = sql.connect("database/GestionEmpleados_DB.db")
+                cursor = cone.cursor()
+                cursor.execute("select * from Empleados WHERE Rol = '{}'".format(True))
+                registro = cursor.fetchall()
+                empleados = len(registro)
+                cursor.execute("select * from Empleados WHERE Rol = '{}'".format(False))
+                registro = cursor.fetchall()
+                cargos = len(registro)-1
+                cursor.execute("select * from Empleados WHERE Tipo_contrato = 'Fijo'")
+                registro = cursor.fetchall()
+                establecidos = len(registro)
+                cursor.execute("select * from Empleados WHERE Tipo_contrato = 'Indefinido'")
+                registro = cursor.fetchall()
+                cumplidos = len(registro)
+                print(rol)
+                if usuario == 'sadmin':
+                    return render_template('dashboard.html', user=usuario, empleados=empleados, cargos=cargos, establecidos=establecidos, cumplidos=cumplidos)
+                elif rol=='True':
+                    return render_template('dashboard.html', user=usuario, empleados=empleados, cargos=cargos, establecidos=establecidos, cumplidos=cumplidos)
+                else:
+                    print('puto')
+                    # Se consulta las tablas Usuarios y Empleados y se obtienen los registros
+                    cone = sql.connect("database/GestionEmpleados_DB.db")
+                    cursor = cone.cursor()
+                    cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario))
+                    registrosObtenidos = cursor.fetchone()
+                    cursor.execute("select * from Empleados WHERE idEmpleados = {}".format(registrosObtenidos[0]))
+                    registro = cursor.fetchone()
+                    #Se crean variables globales para ahorrarse un futura consulta
+                    global nombre, apellido, cedula, correo, celular, fijo, direccion, salario, ingreso, terminacion, cargo, dependencia, contrato
+                    #Se asignan los registros de las tablas a variables
+                    nombre = registrosObtenidos[1]
+                    apellido = registro[11]
+                    cedula = registrosObtenidos[0]
+                    correo = registrosObtenidos[3]
+                    celular = registro[1]
+                    fijo = registro[2]
+                    direccion = registro[3]
+                    salario = registro[4]
+                    ingreso = registro[5]
+                    terminacion = registro[6]
+                    cargo = registro[7]
+                    dependencia = registro[9]
+                    contrato = registro[10]
+                    cone.close()
+                    return render_template('verinfo_us.html', user=usuario, cel=celular, fijo=fijo, direccion=direccion, salario=salario,
+                    ingreso=ingreso, terminacion=terminacion, cargos=cargo, dependencia=dependencia, contrato=contrato,
+                    nombre=nombre, apellido=apellido, cedula=cedula, correo=correo)
+            else:
+                return render_template('inicio_sesion.html')
+        else:
+            return redirect('/')
+    except TypeError:
+        return redirect('/')
+    except Error:
+        return redirect('/')
+
+@app.route('/definicion_listar', methods=['POST', 'GET']) 
+def definicion_listar():
+    try:
         cone = sql.connect("database/GestionEmpleados_DB.db")
         cursor = cone.cursor()
         cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario))
@@ -68,79 +141,14 @@ def validar():
         cursor.execute("select * from Empleados WHERE idEmpleados = {}".format(registrosObtenidos[0]))
         registro = cursor.fetchone()
         rol = registro[8]
-
-        #llamando funcion de conexion base de datos con parametros de variables creadas
-        if validateUserPass(usuario,password):
-             #Se crea el vector para la sesión
-            session['usuario'] = usuario
-            cone = sql.connect("database/GestionEmpleados_DB.db")
-            cursor = cone.cursor()
-            cursor.execute("select * from Empleados WHERE Rol = '{}'".format(True))
-            registro = cursor.fetchall()
-            empleados = len(registro)
-            cursor.execute("select * from Empleados WHERE Rol = '{}'".format(False))
-            registro = cursor.fetchall()
-            cargos = len(registro)
-            cursor.execute("select * from Empleados WHERE Tipo_contrato = 'Fijo'")
-            registro = cursor.fetchall()
-            establecidos = len(registro)
-            cursor.execute("select * from Empleados WHERE Tipo_contrato = 'Indefinido'")
-            registro = cursor.fetchall()
-            cumplidos = len(registro)
-            print(rol)
-            if usuario == 'sadmin':
-                return render_template('dashboard.html', user=usuario, empleados=empleados, cargos=cargos, establecidos=establecidos, cumplidos=cumplidos)
-            elif rol=='True':
-                return render_template('dashboard.html', user=usuario, empleados=empleados, cargos=cargos, establecidos=establecidos, cumplidos=cumplidos)
-            else:
-                print('puto')
-                # Se consulta las tablas Usuarios y Empleados y se obtienen los registros
-                cone = sql.connect("database/GestionEmpleados_DB.db")
-                cursor = cone.cursor()
-                cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario))
-                registrosObtenidos = cursor.fetchone()
-                cursor.execute("select * from Empleados WHERE idEmpleados = {}".format(registrosObtenidos[0]))
-                registro = cursor.fetchone()
-                #Se crean variables globales para ahorrarse un futura consulta
-                global nombre, apellido, cedula, correo, celular, fijo, direccion, salario, ingreso, terminacion, cargo, dependencia, contrato
-                #Se asignan los registros de las tablas a variables
-                nombre = registrosObtenidos[1]
-                apellido = registro[11]
-                cedula = registrosObtenidos[0]
-                correo = registrosObtenidos[3]
-                celular = registro[1]
-                fijo = registro[2]
-                direccion = registro[3]
-                salario = registro[4]
-                ingreso = registro[5]
-                terminacion = registro[6]
-                cargo = registro[7]
-                dependencia = registro[9]
-                contrato = registro[10]
-                cone.close()
-                return render_template('verinfo_us.html', user=usuario, cel=celular, fijo=fijo, direccion=direccion, salario=salario,
-                ingreso=ingreso, terminacion=terminacion, cargos=cargo, dependencia=dependencia, contrato=contrato,
-                nombre=nombre, apellido=apellido, cedula=cedula, correo=correo)
+        if rol=='True':
+            return redirect ('/listar_admi')
         else:
-                return render_template('inicio_sesion.html')
-    else:
-        return redirect('/')
-
-
-@app.route('/definicion_listar', methods=['POST', 'GET']) 
-def definicion_listar():
-    cone = sql.connect("database/GestionEmpleados_DB.db")
-    cursor = cone.cursor()
-    cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario))
-    registrosObtenidos = cursor.fetchone()
-    cursor.execute("select * from Empleados WHERE idEmpleados = {}".format(registrosObtenidos[0]))
-    registro = cursor.fetchone()
-    rol = registro[8]
-    if rol=='True':
-        return redirect ('/listar_admi')
-    else:
-        return redirect ('/listar_super')
-
+            return redirect ('/listar_super')
+    except TypeError:
+        return redirect ('/login')
+    except Error:
+        return redirect ('/login')
 
 @app.route('/editar_us/', methods=['POST', 'GET'])
 def editar_us():
@@ -183,22 +191,26 @@ def update_editar_us():
 @app.route('/ver_ret', methods=['POST', 'GET'])
 def ver_reto():
     #Se consulta la tabla Retroalimentacion y se trae la información
-    if request.method == 'POST':
-        cone = sql.connect("database/GestionEmpleados_DB.db")
-        cursor = cone.cursor()
-        cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario))
-        registrosObtenidos = cursor.fetchone()
-        cursor.execute("select * from Retroalimentacion WHERE idRetroalimentacion = {}".format(registrosObtenidos[0]))
-        registro = cursor.fetchone()
-        desempeño = registro[1]
-        puntaje = registro[2]
-        nya = nombre+' '+apellido
-        cone.close()
-        return render_template('ver_ret.html', user=usuario, desempeño=desempeño, puntaje=puntaje, nya=nya, 
-        cedula=cedula, dependencia=dependencia, ingreso=ingreso)
-    else:
-        return redirect('/')
-
+    try:
+        if request.method == 'POST':
+            cone = sql.connect("database/GestionEmpleados_DB.db")
+            cursor = cone.cursor()
+            cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario))
+            registrosObtenidos = cursor.fetchone()
+            cursor.execute("select * from Retroalimentacion WHERE idRetroalimentacion = {}".format(registrosObtenidos[0]))
+            registro = cursor.fetchone()
+            desempeño = registro[1]
+            puntaje = registro[2]
+            nya = nombre+' '+apellido
+            cone.close()
+            return render_template('ver_ret.html', user=usuario, desempeño=desempeño, puntaje=puntaje, nya=nya, 
+            cedula=cedula, dependencia=dependencia, ingreso=ingreso)
+        else:
+            return redirect('/')
+    except TypeError:
+        return redirect('/login')
+    except Error:
+        return redirect('/login')
 
 @app.route('/listar_admi', methods=['POST', 'GET'])
 def listar_admi():
@@ -289,6 +301,8 @@ def add_user():
         fechaterm = request.form['fechaterm']
         cargo = request.form['cargo']
         rol = False
+        reseña = 'N/A'
+        puntaje = 0
         ###### OJO ########
         con = sql.connect("database/GestionEmpleados_DB.db")
         ###################
@@ -297,9 +311,13 @@ def add_user():
             cedula, celular, telefono, direccion, salario, fechaingreso, fechaterm, cargo, rol, dependencias, contrato, apellido)
         strsql2 = "INSERT INTO Usuarios (idUsuarios, Nombres, Usuario, Correo, Contraseña) VALUES ('{}','{}','{}','{}','{}')".format(
             cedula, nombre, usuario_r, correo, password)
+        strsql3 = "INSERT INTO Retroalimentacion (idRetroalimentacion, Reseña, Puntaje) VALUES ('{}','{}','{}')".format(
+            cedula, reseña, puntaje)
         cur.execute(strsql)
         con.commit()
         cur.execute(strsql2)
+        con.commit()
+        cur.execute(strsql3)
         con.commit()
         con.close()
         return render_template('registrar_usuarios.html', user=usuario)
