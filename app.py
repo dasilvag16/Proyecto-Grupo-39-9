@@ -24,34 +24,6 @@ app.secret_key = 'mi_llave secreta'
 @app.route('/')
 def home():
     return render_template('inicio_sesion.html')
-
-
-#Funcion para validar usuario
-def validateUserPass(usuario,contraseña):
-    print(usuario)
-    # Se conecta a la Base de Datos
-    con = sql.connect("database/GestionEmpleados_DB.db")
-    #con.row_factory = sql.Row
-
-    # Crea un cursor
-    cur = con.cursor()
-
-    # Ejecuta consultas
-    cur.execute("SELECT * FROM Usuarios WHERE Usuario = '{}' and Contraseña = '{}'".format(usuario, contraseña))
-    #cur.execute("SELECT * FROM Usuarios WHERE Usuario = '"+usuario+"'")
-    # Obtiene los recursos
-    registrosObtenidos = cur.fetchall()
-    con.close()
-    # Renderiza listar.html
-    #return render_template("listar.html", rows=registrosObtenidos)
-    print(registrosObtenidos)
-            
-    if registrosObtenidos:
-            return True
-    else:
-            return False
-
-
     
 #definir ruta para login
 @app.route('/login',methods=['POST', 'GET'])
@@ -59,10 +31,6 @@ def validateUserPass(usuario,contraseña):
 def validar():
     #verifica que sea POST
     try:
-        # global usuario_user
-        # global password
-        # usuario_user=request.form['usuario']
-        # password=request.form['contraseña']
         if request.method == 'POST':
             
 
@@ -150,80 +118,6 @@ def validar():
         print('gol')
         return redirect('/')
 
-############################################ PRUEBA #########################################################
-# def inicio_sesion(usuario_user,password):
-#     cone = sql.connect("database/GestionEmpleados_DB.db")
-#     cursor = cone.cursor()
-#     cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario_user))
-#     registrosObtenidos = cursor.fetchone()
-#     cursor.execute("select * from Empleados WHERE idEmpleados = {}".format(registrosObtenidos[0]))
-#     registro = cursor.fetchone()
-#     rol = registro[8]
-#     global usuario
-#     usuario = registrosObtenidos[2]
-#     password_db = registrosObtenidos[4]
-#     inicio_exitoso = ws.check_password_hash(password_db, password)
-#     if usuario:
-#         #llamando funcion de conexion base de datos con parametros de variables creadas
-#         if inicio_exitoso:
-#             #Se crea el vector para la sesión
-#             session['usuario'] = usuario
-#             cone = sql.connect("database/GestionEmpleados_DB.db")
-#             cursor = cone.cursor()
-#             cursor.execute("select * from Empleados WHERE Rol = '{}'".format(True))
-#             registro = cursor.fetchall()
-#             empleados = len(registro)
-#             cursor.execute("select * from Empleados WHERE Rol = '{}'".format(False))
-#             registro = cursor.fetchall()
-#             cargos = len(registro)-1
-#             cursor.execute("select * from Empleados WHERE Tipo_contrato = 'Fijo'")
-#             registro = cursor.fetchall()
-#             establecidos = len(registro)
-#             cursor.execute("select * from Empleados WHERE Tipo_contrato = 'Indefinido'")
-#             registro = cursor.fetchall()
-#             cumplidos = len(registro)
-#             print(rol)
-#             if usuario == 'sadmin':
-#                 return render_template('dashboard.html', user=usuario, empleados=empleados, cargos=cargos, establecidos=establecidos, cumplidos=cumplidos)
-#             elif rol=='True':
-#                 return render_template('dashboard.html', user=usuario, empleados=empleados, cargos=cargos, establecidos=establecidos, cumplidos=cumplidos)
-#             else:
-#                 print('puto')
-#                 # Se consulta las tablas Usuarios y Empleados y se obtienen los registros
-#                 cone = sql.connect("database/GestionEmpleados_DB.db")
-#                 cursor = cone.cursor()
-#                 cursor.execute("SELECT * FROM Usuarios WHERE Usuario = '{}'".format(usuario))
-#                 registrosObtenidos = cursor.fetchone()
-#                 cursor.execute("select * from Empleados WHERE idEmpleados = {}".format(registrosObtenidos[0]))
-#                 registro = cursor.fetchone()
-#                 #Se crean variables globales para ahorrarse un futura consulta
-#                 global nombre, apellido, cedula, correo, celular, fijo, direccion, salario, ingreso, terminacion, cargo, dependencia, contrato
-#                 #Se asignan los registros de las tablas a variables
-#                 nombre = registrosObtenidos[1]
-#                 apellido = registro[11]
-#                 cedula = registrosObtenidos[0]
-#                 correo = registrosObtenidos[3]
-#                 celular = registro[1]
-#                 fijo = registro[2]
-#                 direccion = registro[3]
-#                 salario = registro[4]
-#                 ingreso = registro[5]
-#                 terminacion = registro[6]
-#                 cargo = registro[7]
-#                 dependencia = registro[9]
-#                 contrato = registro[10]
-#                 cone.close()
-#                 return render_template('verinfo_us.html', user=usuario, cel=celular, fijo=fijo, direccion=direccion, salario=salario,
-#                 ingreso=ingreso, terminacion=terminacion, cargos=cargo, dependencia=dependencia, contrato=contrato,
-#                 nombre=nombre, apellido=apellido, cedula=cedula, correo=correo)
-#         else:
-#             print('gol4')
-#             return redirect ('/')
-#     else:
-#         print('gol3')
-#         return redirect ('/')
-
-############################################ PRUEBA #########################################################
 @app.route('/definicion_listar', methods=['POST', 'GET']) 
 def definicion_listar():
     try:
@@ -269,6 +163,7 @@ def update_editar_us():
         cursor.execute("UPDATE Usuarios SET Nombres='"+nombre+"', Correo='"+correo+"' WHERE idUsuarios = '"+str(cedula)+"'")
         cone.commit()
         cone.close()
+        mensaje = flash('Datos cambiados satisfactoriamente')
         return render_template('editar_us.html', user=usuario, cel=celular, fijo=fijo, direccion=direccion, 
             salario=salario, ingreso=ingreso, terminacion=terminacion, cargos=cargo, dependencia=dependencia,
             contrato=contrato, nombre=nombre, apellido=apellido, cedula=cedula, correo=correo)
@@ -333,39 +228,6 @@ def buscar_admi():
     except Error:
         return render_template('listar_admi.html', user=usuario)
 
-# @app.route('/verinfo_admi', methods=['POST'])
-# def verinfo_admi():
-#     con = db.get_db()
-#     cur = con.cursor()
-#     strsql = "SELECT * FROM Empleados WHERE idEmpleados = {}".format(1)
-#     strsql1 = "SELECT * FROM Usuarios WHERE idUsuarios = {}".format(1)
-#     strsql2 = "SELECT * FROM Retroalimentacion WHERE idRetroalimentacion = {}".format(1)
-#     cur.execute(strsql)
-#     datos = cur.fetchone()
-#     cur.execute(strsql1)
-#     datos1 = cur.fetchone()
-#     cur.execute(strsql2)
-#     datos2 = cur.fetchone()
-#     cedula = datos[0]
-#     celular = datos[1]
-#     fijo = datos[2]
-#     direccion = datos[3]
-#     salario = datos[4]
-#     ingreso = datos[5]
-#     term = datos[6]
-#     cargo = datos[7]
-#     dependencias = datos[9]
-#     contrato = datos[10]
-#     apellido = datos[11]
-#     nombre = datos1[1]
-#     usuario1 = datos1[2]
-#     correo = datos1[3]
-#     contraseña = datos1[4]
-#     retroalimentacion = datos2[1]
-#     return render_template('verinfo_admi.html', user=usuario, cedula=cedula, celular=celular, fijo=fijo, direccion=direccion,
-#         salario=salario, ingreso=ingreso, term=term, cargo=cargo, dependencias=dependencias, contrato=contrato,
-#         apellido=apellido, nombre=nombre, usuario1=usuario1, correo=correo, contraseña=contraseña, retroalimentacion=retroalimentacion)
-
 
 @app.route('/registrar_usuarios', methods=['POST', 'GET'])
 def registrar_usuarios():   
@@ -414,6 +276,7 @@ def add_user():
         cur.execute(strsql3)
         con.commit()
         con.close()
+        mensaje = flash('Usuario agregado satisfactoriamente')
         return render_template('registrar_usuarios.html', user=usuario)
     except TypeError:
         return render_template('registrar_usuarios.html', user=usuario)
@@ -494,6 +357,7 @@ def editar():
         cur.execute("SELECT Rol FROM Empleados WHERE idEmpleados = '{}'".format(busqueda1))
         rolex = cur.fetchone()
         rol = rolex[0]
+        mensaje = flash('Datos cambiados satisfactoriamente')
         if contraseñ=='':
             strsql = "UPDATE Empleados SET idEmpleados='"+str(identificacion)+"', Celular='"+str(celular)+"', Fijo='"+str(fijo)+"', Direccion='"+direccion+"', Salario='"+salario+"', Fecha_ingreso='"+ingreso+"', Fecha_terminacion='"+terminacion+"', Cargo='"+cargo+"', Rol='"+str(rol)+"', Dependencia='"+dependencias+"', Tipo_contrato='"+contrato+"', Apellidos='"+apellidos+"' WHERE idEmpleados = '"+str(busqueda1)+"'"
             strsql1 = "UPDATE Usuarios SET idUsuarios='"+str(identificacion)+"', Nombres='"+nombre+"', Usuario='"+usuario2+"', Correo='"+correo+"' WHERE idUsuarios = '"+str(busqueda1)+"'"
@@ -557,14 +421,12 @@ def eliminar_user():
         cur.execute(strsql2)
         con.commit()
         con.close()
+        mensaje = flash('Uusuario eliminado satisfactoriamente')
         return redirect('/eliminar')
     except Error:
         return redirect('/eliminar')
     except TypeError:
         return redirect('/eliminar')
-# @app.route('/generar_ret', methods=['POST'])
-# def generar_ret():
-#     return render_template('generar_ret.html', user=usuario)
 
 
 @app.route('/listar_super', methods=['POST', 'GET'])

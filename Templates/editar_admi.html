@@ -5,12 +5,16 @@
 </div>
 {% endblock %}
 {% block cuerpo %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 <section>
-    <!--<div id="editar_admibg">
-        <form action="/generar_ret" method="POST" onSubmit="return enviar_generar_ret()">
-            <input type="submit" name="generar_retro" value="GENERAR RETROALIMENTACIÓN" id="editar_admigr"/>
-        </form>
-    </div>-->
 <br> <br><br>
 <form action="/listar_super" method="GET">
     <input type="submit" name="" value="ATRÁS" id="atras_listarusuario"/>
