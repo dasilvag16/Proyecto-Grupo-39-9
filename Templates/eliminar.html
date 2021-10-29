@@ -6,12 +6,16 @@
 {% endblock %}
 {% block cuerpo %}
     <!-- Aquí va el códigoo html -->
-    <center><div id="buscar_usuario">
+    <br> <br><br>
+    <form action="/listar_super" method="GET">
+        <input type="submit" name="" value="ATRÁS" id="atras_listarusuario"/>
+    </form>
+    <br> <center><div id="buscar_usuario">
         <form method="POST" action="/eliminar">
         <label>Buscar cédula <input type="text" id="BuscarUsuario" name="BuscarUsuario" value="{{cedula}}"></label>
         <input type="submit" name="buscar_super" value="BUSCAR" id="buscar_super"/>
         </form>
-        </div></center>
+        </div></center> <br>
     <form action="/eliminar_user" method="post">
         {% if cedula: %}
                 <br><br>

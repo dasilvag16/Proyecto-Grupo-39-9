@@ -6,8 +6,13 @@
 {% endblock %}
 {% block cuerpo %}
     <!-- Aquí va el código html -->
+    <br><br>
+    <form action="/atras_us" method="GET">
+        <input type="submit" name="" value="ATRÁS" id="atrás_verinfousuario"/>
+    </form>
+
     <center><div id="datospersonales">
-        <p style="border: #000000 2px;"> DATOS PERSONALES</p>
+        <p> DATOS PERSONALES</p>
     </div> </center>
     
     <main>
@@ -68,31 +73,35 @@
                 </div>
                 <p class="formulario__input-error">Este campo solo admite números</p>
             </div>
-            <center><div id="">
+            <br> 
+            <br>
+        
                 <!--<form action="" method="" onSubmit="">-->
                     <button type="submit" name="editar_us" value="GUARDAR CAMBIOS" id="guardarcambioseditar_boton">GUARDAR CAMBIOS</button>
                     <!--<input type="submit" name="editar_us" value="GUARDAR CAMBIOS" id="guardarcambioseditar"/>-->
                 <!--</form>-->
-            </div> </center> <br> <br>
+              <br> <br>
         </form>
     </main>    
 
-    <center><div id="datos_de_usuario">
-        <p style="border: ridge #000000 2px;"> DATOS DE USUARIO </p>
+    <center>
+    <div id="datos_de_usuario">
+        <p> DATOS DE USUARIO </p>
     </div> </center>
-    <div id="datos1"> 
-        <div id=datosusuario>
-            <p style="border: ridge #ffffff 2px;"> <br> <strong>Número de identificación:</strong> {{cedula}} <br>
-                <strong>Fecha de ingreso:</strong> {{ingreso}} <br>
-                <strong>Tipo de contrato:</strong> {{contrato}} <br>
-                <strong>Fecha de terminación de contrato:</strong> {{terminacion}} </p>
-        </div> 
-        <div id=datosusuario2>
-            <p style="border: ridge #ffffff 2px;"> <br> <strong>Cargo:</strong> {{cargos}} <br>
-                <strong>Dependencia:</strong> {{dependencia}} <br>
-                <strong>Salario:</strong> {{salario}} <br>
-                <strong>Usuario:</strong> {{user}} </p>
-        </div> 
+    <div class="cuadro">
+        <div id="datos1"> 
+            <div id=datosusuario>
+                <p style="border: ridge #ffffff 3px;"> <br> <strong>Número de identificación:</strong> {{cedula}} <br>
+                    <strong>Fecha de ingreso:</strong> {{ingreso}} <br>
+                    <strong>Tipo de contrato:</strong> {{contrato}} <br>
+                    <strong>Fecha de terminación de contrato:</strong> {{terminacion}} </p>
+            </div> 
+            <div id=datosusuario2>
+                <p style="border: ridge #ffffff 3px;"> <br> <strong>Cargo:</strong> {{cargos}} <br>
+                    <strong>Dependencia:</strong> {{dependencia}} <br>
+                    <strong>Salario:</strong> {{salario}} <br>
+                    <strong>Usuario:</strong> {{user}} </p>
+            </div> 
+        </div>
     </div>
-   
 {% endblock %}

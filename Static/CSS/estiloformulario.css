@@ -75,6 +75,7 @@ main {
 .formulario__mensaje,
 .formulario__grupo-btn-enviar {
 	grid-column: span 2;
+	
 }
 
 .formulario__mensaje {
@@ -111,6 +112,7 @@ main {
 	border-radius: 3px;
 	cursor: pointer;
 	transition: .1s ease all;
+	border-radius: 20px;
 	
 }
 .formulario__btn hover {
